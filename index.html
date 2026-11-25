@@ -1,0 +1,2616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanook.com YouTube — 2026 Executive Year in Review</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --bg-base: #070B14;
+      --bg-surface: #0E1525;
+      --bg-elevated: #141E33;
+      --bg-hover: #1A2742;
+      --border: rgba(148, 163, 184, 0.14);
+      --border-strong: rgba(148, 163, 184, 0.28);
+      --text-primary: #F8FAFC;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+      --accent-red: #F43F5E;
+      --accent-cyan: #38BDF8;
+      --accent-emerald: #10B981;
+      --accent-amber: #F59E0B;
+      --accent-violet: #A855F7;
+      --accent-blue: #6366F1;
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 22px;
+      --shadow-card: 0 12px 32px rgba(0, 0, 0, 0.35);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html, body {
+      height: 100%;
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .tabular { font-variant-numeric: tabular-nums; }
+
+    /* Ambient Background Glow */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(circle at 12% 10%, rgba(244, 63, 94, 0.08), transparent 36%),
+        radial-gradient(circle at 88% 18%, rgba(56, 189, 248, 0.08), transparent 38%),
+        radial-gradient(circle at 50% 95%, rgba(168, 85, 247, 0.06), transparent 40%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* App Layout */
+    .app-shell {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* Sidebar Navigation */
+    .sidebar {
+      width: 272px;
+      flex-shrink: 0;
+      background: rgba(11, 17, 30, 0.92);
+      backdrop-filter: blur(18px);
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 40;
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .sidebar.collapsed { transform: translateX(-100%); }
+
+    .brand-header {
+      padding: 22px 20px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--accent-red);
+      margin-bottom: 6px;
+    }
+
+    .brand-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent-red);
+      box-shadow: 0 0 12px var(--accent-red);
+    }
+
+    .brand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 19px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+    }
+
+    .brand-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .nav-list {
+      flex: 1;
+      overflow-y: auto;
+      padding: 14px 12px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .nav-item {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--text-secondary);
+      text-align: left;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      transition: all 0.18s ease;
+    }
+
+    .nav-item:hover {
+      background: rgba(255, 255, 255, 0.04);
+      color: var(--text-primary);
+    }
+
+    .nav-item.active {
+      background: linear-gradient(135deg, rgba(244, 63, 94, 0.16), rgba(56, 189, 248, 0.08));
+      border-color: rgba(244, 63, 94, 0.36);
+      color: var(--text-primary);
+      font-weight: 600;
+    }
+
+    .nav-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      width: 24px;
+      height: 24px;
+      border-radius: 7px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(148, 163, 184, 0.1);
+      color: var(--text-secondary);
+      flex-shrink: 0;
+    }
+
+    .nav-item.active .nav-num {
+      background: var(--accent-red);
+      color: #fff;
+    }
+
+    .sidebar-footer {
+      padding: 14px 18px;
+      border-top: 1px solid var(--border);
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Main Stage */
+    .main-stage {
+      flex: 1;
+      margin-left: 272px;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      transition: margin-left 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .main-stage.expanded { margin-left: 0; }
+
+    /* Top Control Bar */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      background: rgba(7, 11, 20, 0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .topbar-left, .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 8px 13px;
+      border-radius: 9px;
+      border: 1px solid var(--border);
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.16s ease;
+    }
+
+    .btn:hover {
+      background: var(--bg-hover);
+      border-color: var(--border-strong);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #F43F5E, #E11D48);
+      border-color: transparent;
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.1);
+      background: linear-gradient(135deg, #F43F5E, #E11D48);
+    }
+
+    .btn-cyan {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.32);
+      color: var(--accent-cyan);
+    }
+
+    .btn-cyan:hover {
+      background: rgba(56, 189, 248, 0.2);
+    }
+
+    .slide-counter {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-secondary);
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+    }
+
+    .progress-bar-wrap {
+      height: 3px;
+      background: rgba(148, 163, 184, 0.1);
+      width: 100%;
+    }
+
+    .progress-bar-fill {
+      height: 100%;
+      width: 10%;
+      background: linear-gradient(90deg, var(--accent-red), var(--accent-cyan));
+      transition: width 0.32s ease;
+    }
+
+    /* Slide Viewport */
+    .slides-wrapper {
+      flex: 1;
+      padding: 30px 36px 88px;
+      max-width: 1380px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .slide {
+      display: none;
+      animation: fadeSlideIn 0.34s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .slide.active { display: block; }
+
+    @keyframes fadeSlideIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Slide Header */
+    .slide-header {
+      margin-bottom: 24px;
+    }
+
+    .slide-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      background: rgba(56, 189, 248, 0.12);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      margin-bottom: 12px;
+    }
+
+    .slide-kicker.red {
+      background: rgba(244, 63, 94, 0.12);
+      color: var(--accent-red);
+      border-color: rgba(244, 63, 94, 0.28);
+    }
+
+    .slide-kicker.violet {
+      background: rgba(168, 85, 247, 0.12);
+      color: var(--accent-violet);
+      border-color: rgba(168, 85, 247, 0.28);
+    }
+
+    .slide-kicker.emerald {
+      background: rgba(16, 185, 129, 0.12);
+      color: var(--accent-emerald);
+      border-color: rgba(16, 185, 129, 0.28);
+    }
+
+    .slide-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      line-height: 1.18;
+      color: var(--text-primary);
+    }
+
+    .slide-subtitle {
+      font-size: 15px;
+      color: var(--text-secondary);
+      margin-top: 8px;
+      max-width: 920px;
+      line-height: 1.55;
+    }
+
+    /* Grid Helpers */
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .kpi-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+
+    .kpi-grid-5 {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 14px;
+      margin-bottom: 20px;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    .two-col-weighted {
+      display: grid;
+      grid-template-columns: 1.35fr 1fr;
+      gap: 18px;
+      margin-bottom: 20px;
+    }
+
+    /* Cards */
+    .card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      box-shadow: var(--shadow-card);
+    }
+
+    .kpi-card {
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, rgba(20, 30, 51, 0.9), rgba(14, 21, 37, 0.96));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .kpi-card:hover {
+      transform: translateY(-2px);
+      border-color: var(--border-strong);
+    }
+
+    .kpi-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--accent-cyan);
+      opacity: 0.85;
+    }
+
+    .kpi-card.accent-red::after { background: var(--accent-red); }
+    .kpi-card.accent-emerald::after { background: var(--accent-emerald); }
+    .kpi-card.accent-amber::after { background: var(--accent-amber); }
+    .kpi-card.accent-violet::after { background: var(--accent-violet); }
+
+    .kpi-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 10px;
+    }
+
+    .kpi-value {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(22px, 2.3vw, 30px);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      color: var(--text-primary);
+      line-height: 1.15;
+    }
+
+    .kpi-delta {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: rgba(16, 185, 129, 0.14);
+      color: #34D399;
+    }
+
+    .kpi-delta.warn {
+      background: rgba(245, 158, 11, 0.14);
+      color: #FBBF24;
+    }
+
+    .kpi-delta.info {
+      background: rgba(56, 189, 248, 0.14);
+      color: #7DD3FC;
+    }
+
+    .kpi-delta.violet {
+      background: rgba(168, 85, 247, 0.16);
+      color: #D8B4FE;
+    }
+
+    .kpi-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      line-height: 1.4;
+    }
+
+    .card-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .card-sub {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      margin-bottom: 16px;
+      line-height: 1.45;
+    }
+
+    /* Callout Banner */
+    .callout {
+      background: linear-gradient(135deg, rgba(56, 189, 248, 0.09), rgba(99, 102, 241, 0.07));
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: var(--text-primary);
+    }
+
+    .callout.red {
+      background: linear-gradient(135deg, rgba(244, 63, 94, 0.11), rgba(245, 158, 11, 0.06));
+      border-color: rgba(244, 63, 94, 0.3);
+    }
+
+    .callout.emerald {
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.11), rgba(56, 189, 248, 0.06));
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .callout strong { color: #fff; }
+
+    /* Visual Progress / Mix Bars */
+    .mix-bar {
+      height: 14px;
+      border-radius: 999px;
+      overflow: hidden;
+      display: flex;
+      background: var(--bg-elevated);
+      margin: 12px 0 14px;
+    }
+
+    .mix-seg { height: 100%; transition: width 0.4s ease; }
+
+    .legend-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 12.5px;
+      color: var(--text-secondary);
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      display: inline-block;
+    }
+
+    /* Chart Container */
+    .chart-box {
+      position: relative;
+      height: 270px;
+      width: 100%;
+    }
+
+    .chart-box.compact { height: 225px; }
+
+    /* Expandable Deep-Dive Modules */
+    .expand-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-top: 6px;
+    }
+
+    .expand-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .expand-card.open {
+      border-color: rgba(56, 189, 248, 0.42);
+      box-shadow: 0 14px 36px rgba(0, 0, 0, 0.42);
+    }
+
+    .expand-trigger {
+      width: 100%;
+      background: linear-gradient(90deg, rgba(20, 30, 51, 0.65), rgba(14, 21, 37, 0.9));
+      border: none;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      cursor: pointer;
+      color: var(--text-primary);
+      text-align: left;
+      font-family: inherit;
+      transition: background 0.18s ease;
+    }
+
+    .expand-trigger:hover {
+      background: rgba(26, 39, 66, 0.85);
+    }
+
+    .expand-trigger-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .expand-badge {
+      font-size: 10.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      padding: 4px 9px;
+      border-radius: 6px;
+      background: rgba(56, 189, 248, 0.14);
+      color: var(--accent-cyan);
+      border: 1px solid rgba(56, 189, 248, 0.28);
+    }
+
+    .expand-badge.red {
+      background: rgba(244, 63, 94, 0.14);
+      color: #FDA4AF;
+      border-color: rgba(244, 63, 94, 0.3);
+    }
+
+    .expand-badge.emerald {
+      background: rgba(16, 185, 129, 0.14);
+      color: #6EE7B7;
+      border-color: rgba(16, 185, 129, 0.3);
+    }
+
+    .expand-badge.violet {
+      background: rgba(168, 85, 247, 0.14);
+      color: #D8B4FE;
+      border-color: rgba(168, 85, 247, 0.3);
+    }
+
+    .expand-badge.amber {
+      background: rgba(245, 158, 11, 0.14);
+      color: #FCD34D;
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+
+    .expand-title {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-primary);
+    }
+
+    .expand-hint {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+
+    .chevron {
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: rgba(148, 163, 184, 0.12);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      color: var(--text-primary);
+      transition: transform 0.25s ease, background 0.2s ease;
+    }
+
+    .expand-card.open .chevron {
+      transform: rotate(180deg);
+      background: var(--accent-cyan);
+      color: #070B14;
+    }
+
+    .expand-body {
+      display: none;
+      padding: 20px 22px 22px;
+      border-top: 1px solid var(--border);
+      background: rgba(9, 14, 25, 0.65);
+    }
+
+    .expand-card.open .expand-body {
+      display: block;
+      animation: fadeSlideIn 0.24s ease;
+    }
+
+    /* Tables */
+    .table-wrap {
+      width: 100%;
+      overflow-x: auto;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+      text-align: left;
+    }
+
+    thead {
+      background: rgba(20, 30, 51, 0.95);
+    }
+
+    th {
+      padding: 11px 13px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-secondary);
+      border-bottom: 1px solid var(--border-strong);
+      white-space: nowrap;
+    }
+
+    td {
+      padding: 11px 13px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-primary);
+      vertical-align: top;
+      line-height: 1.45;
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr:hover { background: rgba(56, 189, 248, 0.04); }
+
+    .row-highlight {
+      background: rgba(244, 63, 94, 0.08) !important;
+      font-weight: 600;
+    }
+
+    .row-total {
+      background: rgba(56, 189, 248, 0.09) !important;
+      font-weight: 700;
+    }
+
+    /* Pills & Status Tags */
+    .pill {
+      display: inline-block;
+      padding: 3px 8px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .pill-green { background: rgba(16, 185, 129, 0.16); color: #34D399; }
+    .pill-red { background: rgba(244, 63, 94, 0.16); color: #FDA4AF; }
+    .pill-amber { background: rgba(245, 158, 11, 0.16); color: #FCD34D; }
+    .pill-cyan { background: rgba(56, 189, 248, 0.16); color: #7DD3FC; }
+    .pill-violet { background: rgba(168, 85, 247, 0.16); color: #D8B4FE; }
+
+    /* Lists inside Cards */
+    .detail-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .detail-list li {
+      position: relative;
+      padding-left: 18px;
+      font-size: 13.5px;
+      line-height: 1.58;
+      color: var(--text-secondary);
+    }
+
+    .detail-list li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 9px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-cyan);
+    }
+
+    .detail-list.red li::before { background: var(--accent-red); }
+    .detail-list.emerald li::before { background: var(--accent-emerald); }
+    .detail-list.amber li::before { background: var(--accent-amber); }
+    .detail-list.violet li::before { background: var(--accent-violet); }
+
+    .detail-list strong { color: var(--text-primary); }
+
+    .sub-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .sub-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .mini-panel {
+      background: rgba(14, 21, 37, 0.9);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 16px;
+    }
+
+    .mini-panel h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 14px;
+      margin-bottom: 10px;
+      color: var(--text-primary);
+    }
+
+    .section-divider {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--text-muted);
+      margin: 18px 0 10px;
+    }
+
+    .footnote {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 12px;
+      line-height: 1.5;
+    }
+
+    /* Speaker Notes Drawer */
+    .notes-drawer {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: min(460px, calc(100vw - 32px));
+      max-height: 62vh;
+      background: rgba(14, 21, 37, 0.97);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(56, 189, 248, 0.38);
+      border-radius: var(--radius-md);
+      box-shadow: 0 24px 60px rgba(0, 0, 0, 0.65);
+      z-index: 60;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .notes-drawer.open { display: flex; }
+
+    .notes-header {
+      padding: 14px 18px;
+      background: rgba(20, 30, 51, 0.95);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .notes-header span {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--accent-cyan);
+    }
+
+    .notes-body {
+      padding: 16px 18px;
+      overflow-y: auto;
+      font-size: 13.5px;
+      line-height: 1.65;
+      color: var(--text-secondary);
+      white-space: pre-line;
+    }
+
+    /* Bottom Floating Navigation Bar */
+    .bottom-nav {
+      position: fixed;
+      bottom: 18px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 35;
+      background: rgba(14, 21, 37, 0.92);
+      backdrop-filter: blur(16px);
+      border: 1px solid var(--border-strong);
+      border-radius: 999px;
+      padding: 6px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.5);
+    }
+
+    .dot-nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 8px;
+    }
+
+    .slide-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.3);
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .slide-dot.active {
+      width: 24px;
+      background: var(--accent-red);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 1120px) {
+      .kpi-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .kpi-grid-5 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      .two-col, .two-col-weighted, .sub-grid, .sub-grid-3, .kpi-grid-3 { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 860px) {
+      .sidebar { transform: translateX(-100%); }
+      .sidebar.mobile-open { transform: translateX(0); }
+      .main-stage { margin-left: 0; }
+      .slides-wrapper { padding: 22px 16px 96px; }
+      .topbar { padding: 10px 14px; }
+      .kpi-grid-5 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+  </style>
+</head>
+<body>
+<div class="app-shell">
+  <!-- Left Sidebar Navigation -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand-header">
+      <div class="brand-tag"><span class="brand-dot"></span> Sanook.com • YouTube</div>
+      <div class="brand-title">2026 Year in Review</div>
+      <div class="brand-sub">Executive Interactive Dashboard</div>
+    </div>
+    <nav class="nav-list" id="navList">
+      <button class="nav-item active" data-slide="0"><span class="nav-num">01</span><span>Full 2026 Revenue Report</span></button>
+      <button class="nav-item" data-slide="1"><span class="nav-num">02</span><span>Executive Summary & YoY</span></button>
+      <button class="nav-item" data-slide="2"><span class="nav-num">03</span><span>Revenue Inflection Point</span></button>
+      <button class="nav-item" data-slide="3"><span class="nav-num">04</span><span>Content Format Contribution</span></button>
+      <button class="nav-item" data-slide="4"><span class="nav-num">05</span><span>Content Strategy Audit</span></button>
+      <button class="nav-item" data-slide="5"><span class="nav-num">06</span><span>Discovery & Traffic Sources</span></button>
+      <button class="nav-item" data-slide="6"><span class="nav-num">07</span><span>Audience Demographics</span></button>
+      <button class="nav-item" data-slide="7"><span class="nav-num">08</span><span>Deep-Dive: Nintha Khao</span></button>
+      <button class="nav-item" data-slide="8"><span class="nav-num">09</span><span>Incubator: SEERCRET & Series</span></button>
+      <button class="nav-item" data-slide="9"><span class="nav-num">10</span><span>2027 Roadmap & Conclusion</span></button>
+    </nav>
+    <div class="sidebar-footer">
+      <strong>Data Period:</strong> Jan 1 – Nov 24, 2026<br>
+      Revenue finalized through Nov 22 (48-hr lag).<br>
+      Click any section to expand deep-dive metrics.
+    </div>
+  </aside>
+
+  <!-- Main Content Stage -->
+  <div class="main-stage" id="mainStage">
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="btn" id="toggleSidebarBtn" title="Toggle Navigation">☰ Slides</button>
+        <span class="slide-counter tabular" id="slideCounter">01 / 10</span>
+      </div>
+      <div class="topbar-right">
+        <button class="btn btn-cyan" id="expandAllBtn">⊞ Expand All Details</button>
+        <button class="btn" id="toggleNotesBtn">🎙 Speaker Notes</button>
+        <button class="btn" id="fullscreenBtn">⛶ Fullscreen</button>
+      </div>
+    </header>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressBar"></div></div>
+
+    <main class="slides-wrapper">
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 1: FULL 2026 REVENUE REPORT -->
+      <!-- ===================================================================== -->
+      <section class="slide active" data-index="0">
+        <div class="slide-header">
+          <div class="slide-kicker red">Slide 01 • Commercial Financial Audit</div>
+          <h1 class="slide-title">Full 2026 Revenue & Monetization Report</h1>
+          <p class="slide-subtitle">Sanook.com YouTube commercial performance from January 1 to November 24, 2026 (estimated revenue & RPM finalized through November 22 under YouTube's standard 48-hour processing schedule).</p>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card accent-red">
+            <div class="kpi-label">Total Estimated Revenue</div>
+            <div class="kpi-value tabular">$16,734.53</div>
+            <div class="kpi-delta">+1,716.47% YoY (18.2x)</div>
+            <div class="kpi-note">vs. $921.27 in same period 2025</div>
+          </div>
+          <div class="kpi-card accent-cyan">
+            <div class="kpi-label">Channel RPM</div>
+            <div class="kpi-value tabular">$1.07</div>
+            <div class="kpi-delta">+342.98% YoY (4.5x)</div>
+            <div class="kpi-note">Up from $0.24 baseline in 2025</div>
+          </div>
+          <div class="kpi-card accent-emerald">
+            <div class="kpi-label">Total Channel Views</div>
+            <div class="kpi-value tabular">23,102,069</div>
+            <div class="kpi-delta">+322.88% YoY (4.2x)</div>
+            <div class="kpi-note">vs. 5,462,974 in 2025</div>
+          </div>
+          <div class="kpi-card accent-violet">
+            <div class="kpi-label">Total Watch Time</div>
+            <div class="kpi-value tabular">2,067,331 hrs</div>
+            <div class="kpi-delta">+2,227.07% YoY (23.3x)</div>
+            <div class="kpi-note">vs. 88,838.5 hrs in 2025</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 18px;">
+          <div class="card-title">
+            <span>Revenue Composition by Stream</span>
+            <span class="pill pill-cyan tabular">Total: $16,734.53 USD</span>
+          </div>
+          <div class="mix-bar">
+            <div class="mix-seg" style="width: 54.87%; background: var(--accent-red);" title="Watch Page Ads: 54.87%"></div>
+            <div class="mix-seg" style="width: 44.93%; background: var(--accent-cyan);" title="YouTube Premium: 44.93%"></div>
+            <div class="mix-seg" style="width: 0.20%; background: var(--accent-amber);" title="Shorts Feed Ads: 0.20%"></div>
+          </div>
+          <div class="legend-row tabular">
+            <span class="legend-item"><span class="dot" style="background: var(--accent-red);"></span><strong>Watch Page Ads:</strong> $9,182.03 (54.87%) — Mid-rolls & pre-rolls on long-form</span>
+            <span class="legend-item"><span class="dot" style="background: var(--accent-cyan);"></span><strong>YouTube Premium:</strong> $7,519.64 (44.93%) — High watch hours from paying members</span>
+            <span class="legend-item"><span class="dot" style="background: var(--accent-amber);"></span><strong>Shorts Feed Ads:</strong> $32.86 (0.20%) — Minimal direct financial return</span>
+          </div>
+        </div>
+
+        <div class="callout emerald">
+          <strong>Key Commercial Takeaway:</strong> Revenue expansion was not merely a function of view growth (+323%). It was powered by a <strong>+2,227% surge in Watch Time</strong>, which multiplied ad impressions per viewer and expanded Channel RPM by <strong>+343% ($0.24 to $1.07)</strong>.
+        </div>
+
+        <!-- Expandable Deep Dives -->
+        <div class="expand-stack">
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge">In-Depth Tables</span>
+                <span class="expand-title">YoY Comparison & Monthly Revenue Trajectory (Jan – Nov 2026)</span>
+              </div>
+              <span class="expand-hint">Expand Full Ledger <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="section-divider" style="margin-top:0;">Year-Over-Year Comparison (2026 vs. 2025)</div>
+              <div class="table-wrap" style="margin-bottom: 18px;">
+                <table class="tabular">
+                  <thead>
+                    <tr><th>Metric</th><th>2025 (Same Period)</th><th>2026 (Jan 1 – Nov 24)</th><th>YoY Growth (%)</th><th>Multiple</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr class="row-highlight"><td>Estimated Revenue</td><td>$921.27</td><td>$16,734.53</td><td><span class="pill pill-green">+1,716.47%</span></td><td>18.2x</td></tr>
+                    <tr><td>Channel RPM</td><td>$0.24</td><td>$1.07</td><td><span class="pill pill-green">+342.98%</span></td><td>4.5x</td></tr>
+                    <tr><td>Total Views</td><td>5,462,974</td><td>23,102,069</td><td><span class="pill pill-green">+322.88%</span></td><td>4.2x</td></tr>
+                    <tr><td>Watch Time (Hours)</td><td>88,838.5 hrs</td><td>2,067,331.29 hrs</td><td><span class="pill pill-green">+2,227.07%</span></td><td>23.3x</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="section-divider">Monthly Revenue Trajectory & Commercial Context (Finalized Jan – Oct 2026)</div>
+              <div class="table-wrap">
+                <table class="tabular">
+                  <thead>
+                    <tr><th>Month</th><th>Est. Revenue</th><th>MoM Growth</th><th>Channel RPM</th><th>Total Views</th><th>Watch Time</th><th>Commercial Context</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Jan 2026</td><td>$17.90</td><td>—</td><td>$0.12</td><td>226,394</td><td>2,708.7 hrs</td><td>Legacy short clips; low RPM</td></tr>
+                    <tr><td>Feb 2026</td><td>$80.01</td><td>+347.0%</td><td>$0.34</td><td>345,486</td><td>4,021.8 hrs</td><td>Pre-inflection baseline</td></tr>
+                    <tr><td>Mar 2026</td><td>$61.37</td><td>-23.3%</td><td>$0.36</td><td>246,113</td><td>2,736.3 hrs</td><td>Baseline</td></tr>
+                    <tr><td>Apr 2026</td><td>$68.39</td><td>+11.4%</td><td>$0.49</td><td>199,439</td><td>2,236.9 hrs</td><td>Baseline</td></tr>
+                    <tr class="row-highlight"><td>May 2026</td><td>$996.58</td><td><span class="pill pill-green">+1,357.2%</span></td><td>$0.78</td><td>1,334,700</td><td>93,410.2 hrs</td><td>The Inflection: Flagship long-form launch</td></tr>
+                    <tr><td>Jun 2026</td><td>$1,479.35</td><td>+48.4%</td><td>$0.87</td><td>1,746,531</td><td>168,005.2 hrs</td><td>Scaling weekday consistency</td></tr>
+                    <tr><td>Jul 2026</td><td>$1,143.71</td><td>-22.7%</td><td>$0.89</td><td>1,334,526</td><td>148,904.7 hrs</td><td>Mid-year consolidation</td></tr>
+                    <tr><td>Aug 2026</td><td>$2,520.32</td><td>+120.4%</td><td>$0.99</td><td>2,916,154</td><td>361,382.6 hrs</td><td>View policy update & audience scaling</td></tr>
+                    <tr><td>Sep 2026</td><td>$3,261.18</td><td>+29.4%</td><td>$1.12</td><td>5,343,630</td><td>405,610.7 hrs</td><td>Sustained viral news cycles</td></tr>
+                    <tr class="row-total"><td>Oct 2026</td><td>$4,829.13</td><td><span class="pill pill-cyan">+48.1%</span></td><td>$1.39</td><td>6,170,870</td><td>576,970.5 hrs</td><td>All-time peak month (RPM & Revenue)</td></tr>
+                    <tr><td>Nov 2026 (MTD)</td><td>$2,276.58</td><td>In progress</td><td>$1.33</td><td>3,242,688</td><td>301,714.4 hrs</td><td>Through Nov 24 (rev finalized Nov 22)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="footnote">Platform Note: View counts reflect YouTube reporting updates implemented on August 27 and November 16, 2026, alongside organic audience expansion.</p>
+            </div>
+          </div>
+
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge red">Program Audit</span>
+                <span class="expand-title">Revenue Breakdown by Program & Top 5 Highest-Grossing Videos</span>
+              </div>
+              <span class="expand-hint">Expand Breakdown <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="table-wrap" style="margin-bottom: 18px;">
+                <table class="tabular">
+                  <thead>
+                    <tr><th>Program / Franchise</th><th>Est. Revenue</th><th>Share</th><th>Program RPM</th><th>Viewership Volume</th><th>Commercial & Operational Status</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr class="row-highlight">
+                      <td><strong>Nintha Khao (Flagship)</strong></td><td>$15,813.72</td><td>94.50%</td><td>$1.18 (Top: $1.73–$1.81)</td><td>20,388,710 views (148 eps)</td>
+                      <td>Primary Engine: 94.70% of watch time (1.96M hrs); 20–42 min episodes; top hits earn $385–$461 each.</td>
+                    </tr>
+                    <tr>
+                      <td>Legacy News & Archive</td><td>~$900.00</td><td>~5.4%</td><td>$0.20 – $0.45</td><td>~2.5M views</td>
+                      <td>Passive evergreen and search traffic from earlier short uploads.</td>
+                    </tr>
+                    <tr>
+                      <td>Nintha Series</td><td>$46.21</td><td>0.28%</td><td>$0.52</td><td>209,181 views (13 eps)</td>
+                      <td><span class="pill pill-amber">Partial Content ID Blocks</span> 6 of 13 episodes earned $0.00 due to broadcast footage claims; 7 monetized episodes generated all $46.21.</td>
+                    </tr>
+                    <tr>
+                      <td>Shorts (All IPs)</td><td>$32.86</td><td>0.20%</td><td>$0.03</td><td>1.44M views</td>
+                      <td>Discovery funnel tool; negligible direct ad return.</td>
+                    </tr>
+                    <tr>
+                      <td>SEERCRET PODCAST</td><td>$2.81</td><td>0.02%</td><td>$0.76</td><td>10,316 views (3 eps)</td>
+                      <td>Early stage / 100% copyright clean (uploaded Nov; EP.3 within 48-hr lag); low views from intent mismatch.</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="section-divider">Top 5 Highest-Grossing Videos in 2026 (100% Flagship Nintha Khao)</div>
+              <div class="table-wrap">
+                <table class="tabular">
+                  <thead>
+                    <tr><th>Rank</th><th>Episode (English Title)</th><th>Est. Revenue</th><th>RPM</th><th>Views</th><th>Watch Hours</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>#1</td><td>Nintha Khao 08/10/26: Hone Krasae — Auntie Maew's Son Reveals Leaked Audio</td><td><strong>$460.99</strong></td><td>$1.73</td><td>578K</td><td>50.1K hrs</td></tr>
+                    <tr><td>#2</td><td>Nintha Khao 18/08/26: Hone Krasae Recap — Kru Nam Asks to Return Half</td><td><strong>$439.27</strong></td><td>$1.16</td><td>393K</td><td>56.7K hrs</td></tr>
+                    <tr><td>#3</td><td>Nintha Khao 06/10/26: Hone Krasae EP.2 — Even Vertical Dramas Are Put to Shame</td><td><strong>$403.69</strong></td><td>$1.76</td><td>380K</td><td>47.4K hrs</td></tr>
+                    <tr><td>#4</td><td>Nintha Khao 10/08/26: Hone Krasae Recap — 'Oaujun' Controversy</td><td><strong>$389.03</strong></td><td>$1.08</td><td>370K</td><td>65.1K hrs</td></tr>
+                    <tr><td>#5</td><td>Nintha Khao 31/08/26: Hone Krasae — Yat vs. Ta Epic Feud</td><td><strong>$385.65</strong></td><td>$1.81</td><td>454K</td><td>54.0K hrs</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge emerald">2027 Commercial Levers</span>
+                <span class="expand-title">5 Strategic Ways to Increase Revenue in 2027</span>
+              </div>
+              <span class="expand-hint">Expand Playbook <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <ul class="detail-list emerald">
+                <li><strong>1. Mid-Roll Ad Placement Optimization on Flagship Content:</strong> Manually insert mid-roll breaks at natural narrative pauses every 6–8 minutes across 25–40 minute episodes to push RPM from $1.39 toward <strong>$1.80–$2.00</strong> without harming retention.</li>
+                <li><strong>2. Resolve Copyright Restrictions on Nintha Series:</strong> 6 of 13 episodes were demonetized ($0.00) by third-party Content ID claims. Switch to still images, transformational commentary, or Picture-in-Picture framing to monetize its 209K+ views and 05:55 AVD.</li>
+                <li><strong>3. Unlock Alternative Monetization (Shopping & Fan Funding):</strong> YouTube Shopping is already eligible in Studio for affiliate product tagging. Pair with Channel Memberships & Super Thanks to monetize the 13% subscriber cohort generating nearly 20% of watch time.</li>
+                <li><strong>4. Attract Direct Native Brand Integrations:</strong> With 300K+ daily peak views and 62.8% of viewers aged 25–44 (52% F / 48% M), package baked-in host reads, sponsored segments, and title sponsorships for Nintha Khao.</li>
+                <li><strong>5. Leverage High-CPM International Audiences:</strong> Over 1.7M views came from the US, Australia, Western Europe, and Japan. Structure titles and descriptions with clear context for overseas Thai diaspora communities to sustain higher international ad rates.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 2: EXECUTIVE SUMMARY & YOY TURNAROUND (DOC SLIDE 1) -->
+      <!-- ===================================================================== -->
+      <section class="slide" data-index="1">
+        <div class="slide-header">
+          <div class="slide-kicker">Slide 02 • Executive Summary</div>
+          <h1 class="slide-title">2026 Channel Performance: The Long-Form Growth Pivot</h1>
+          <p class="slide-subtitle">Sanook.com scaled watch time by +2,227% and expanded revenue 18.2x YoY through focused, high-retention long-form news commentary.</p>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card accent-cyan">
+            <div class="kpi-label">Total Views</div>
+            <div class="kpi-value tabular">23.10M</div>
+            <div class="kpi-delta">+322.9% YoY</div>
+            <div class="kpi-note">4.2x over 2025 baseline (5.46M)</div>
+          </div>
+          <div class="kpi-card accent-violet">
+            <div class="kpi-label">Watch Time</div>
+            <div class="kpi-value tabular">2.07M hrs</div>
+            <div class="kpi-delta">+2,227.1% YoY</div>
+            <div class="kpi-note">23.3x over 2025 baseline (88.8K hrs)</div>
+          </div>
+          <div class="kpi-card accent-red">
+            <div class="kpi-label">Estimated Revenue</div>
+            <div class="kpi-value tabular">$16,734.53</div>
+            <div class="kpi-delta">+1,716.5% YoY</div>
+            <div class="kpi-note">18.2x expansion vs. 2025 ($921.27)</div>
+          </div>
+          <div class="kpi-card accent-emerald">
+            <div class="kpi-label">Net Subscribers</div>
+            <div class="kpi-value tabular">+43,788</div>
+            <div class="kpi-delta">+368.5% YoY</div>
+            <div class="kpi-note">4.7x growth vs. 2025 (+9,347)</div>
+          </div>
+        </div>
+
+        <div class="two-col-weighted">
+          <div class="card">
+            <div class="card-title">YoY Expansion Multiples (2026 vs. 2025 Baseline)</div>
+            <div class="card-sub">Engagement depth (Watch Time 23.3x) outpaced raw view growth (4.2x), driving outsized monetization returns (18.2x).</div>
+            <div class="chart-box compact"><canvas id="chartSlide2"></canvas></div>
+          </div>
+          <div class="card">
+            <div class="card-title">Core Strategic Turnaround Pillars</div>
+            <div class="card-sub">What fundamentally unlocked Sanook.com's 2026 transformation</div>
+            <ul class="detail-list">
+              <li><strong>Fleeting Reach → Deep Engagement:</strong> Overall AVD surged from 1:23 to <strong>5:22</strong> (+288%; Long-form 5:42; watch-page weighted 7:51).</li>
+              <li><strong>Packaging Efficiency Scaled Reach:</strong> Impressions tripled to <strong>176.1M</strong> (+251.8%) while CTR climbed +1.51 pts to <strong>5.74%</strong>.</li>
+              <li><strong>Monetization Multiplier:</strong> Longer sessions unlocked mid-roll inventory, lifting RPM from $0.24 to <strong>$1.07</strong> (+343%).</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="expand-stack">
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge">Complete Audit Table</span>
+                <span class="expand-title">Full 8-Metric Comparison: 2025 Baseline vs. 2026 Actuals</span>
+              </div>
+              <span class="expand-hint">Expand Table <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="table-wrap">
+                <table class="tabular">
+                  <thead>
+                    <tr><th>Metric</th><th>2025 (Baseline)</th><th>2026 (Jan 1 – Nov 24)</th><th>Absolute Change</th><th>YoY Growth (%)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Views</td><td>5,462,974</td><td>23,102,069</td><td>+17,639,095</td><td><span class="pill pill-green">+322.88%</span></td></tr>
+                    <tr class="row-highlight"><td>Watch Time (Hours)</td><td>88,838.5 hrs</td><td>2,067,331.29 hrs</td><td>+1,978,492.79 hrs</td><td><span class="pill pill-green">+2,227.07%</span></td></tr>
+                    <tr><td>Avg. View Duration (AVD)</td><td>1m 23s (83s)</td><td>5m 22s (322s) [LF: 5:42]</td><td>+3m 59s</td><td><span class="pill pill-green">+288.13%</span></td></tr>
+                    <tr><td>Impressions</td><td>50,062,741</td><td>176,119,856</td><td>+126,057,115</td><td><span class="pill pill-green">+251.80%</span></td></tr>
+                    <tr><td>Click-Through Rate (CTR)</td><td>4.23%</td><td>5.74%</td><td>+1.51% pts</td><td><span class="pill pill-green">+35.70%</span></td></tr>
+                    <tr><td>Net Subscribers Gained</td><td>+9,347</td><td>+43,788</td><td>+34,441</td><td><span class="pill pill-green">+368.48%</span></td></tr>
+                    <tr class="row-highlight"><td>Estimated Revenue</td><td>$921.27 USD</td><td>$16,734.53 USD</td><td>+$15,813.26 USD</td><td><span class="pill pill-green">+1,716.47%</span></td></tr>
+                    <tr><td>Channel RPM</td><td>$0.24 USD</td><td>$1.07 USD</td><td>+$0.83 USD</td><td><span class="pill pill-green">+342.98%</span></td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge amber">Data Governance</span>
+                <span class="expand-title">Platform Reporting Context & Metric Definitions</span>
+              </div>
+              <span class="expand-hint">Expand Context <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <ul class="detail-list amber">
+                <li><strong>View Counting Updates:</strong> YouTube implemented updates to view counting in late August (Aug 27) and mid-November (Nov 16) 2026. These platform reporting updates may have contributed in part to reported view increases alongside genuine organic audience expansion.</li>
+                <li><strong>Revenue Processing Window:</strong> Estimated revenue ($16,734.53) reflects finalized figures through November 22, 2026 due to YouTube's standard 48-hour reporting lag.</li>
+                <li><strong>AVD Methodology:</strong> Overall channel AVD (5:22) blends all views including Shorts; Long-Form AVD stands at 5:42, while weighted watch-page session duration reaches 7:51.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 3: REVENUE TRAJECTORY & INFLECTION POINT (DOC SLIDE 2) -->
+      <!-- ===================================================================== -->
+      <section class="slide" data-index="2">
+        <div class="slide-header">
+          <div class="slide-kicker red">Slide 03 • Revenue Trajectory</div>
+          <h1 class="slide-title">Revenue Trajectory: Scaling from Base to Inflection</h1>
+          <p class="slide-subtitle">Monthly revenue expanded from under $100/month in Q1 to an all-time record of $4,829.13 in October, fueled by a 10x+ surge in RPM.</p>
+        </div>
+
+        <div class="kpi-grid-3">
+          <div class="kpi-card">
+            <div class="kpi-label">Phase 1 • Q1–Apr Baseline</div>
+            <div class="kpi-value tabular">~$57 / mo</div>
+            <div class="kpi-delta info">$227.67 Total (Jan–Apr)</div>
+            <div class="kpi-note">RPM $0.12–$0.49 | 2.2K–4.0K watch hrs/mo</div>
+          </div>
+          <div class="kpi-card accent-amber">
+            <div class="kpi-label">Phase 2 • May–Jul Breakout</div>
+            <div class="kpi-value tabular">$997 → $1,479</div>
+            <div class="kpi-delta">+1,357% MoM in May</div>
+            <div class="kpi-note">Watch time surged 41x in May (2.2K → 93.4K hrs)</div>
+          </div>
+          <div class="kpi-card accent-red">
+            <div class="kpi-label">Phase 3 • Q3–Q4 Peak</div>
+            <div class="kpi-value tabular">$4,829.13</div>
+            <div class="kpi-delta">Oct Record • $1.39 RPM</div>
+            <div class="kpi-note">70x higher than April; 577K hrs in October</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 18px;">
+          <div class="card-title">
+            <span>2026 Monthly Revenue (USD) vs. Channel RPM Trajectory</span>
+            <span class="pill pill-red">Oct Peak: $4,829.13 | $1.39 RPM</span>
+          </div>
+          <div class="card-sub">Finalized calendar months Jan – Oct 2026 plus November month-to-date in-progress ($2,276.58 through Nov 22).</div>
+          <div class="chart-box"><canvas id="chartSlide3"></canvas></div>
+        </div>
+
+        <div class="expand-stack">
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge">Monthly Breakdown</span>
+                <span class="expand-title">Strategic Phase Ledger & Revenue Stream Mix</span>
+              </div>
+              <span class="expand-hint">Expand Table <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="table-wrap" style="margin-bottom: 18px;">
+                <table class="tabular">
+                  <thead>
+                    <tr><th>Month</th><th>Monthly Revenue</th><th>MoM Growth</th><th>Channel RPM</th><th>Watch Time (Hrs)</th><th>Strategic Phase</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Jan 2026</td><td>$17.90</td><td>—</td><td>$0.12</td><td>2,708.7 hrs</td><td>Phase 1: Baseline (Pre-long form)</td></tr>
+                    <tr><td>Feb 2026</td><td>$80.01</td><td>+347.0%</td><td>$0.34</td><td>4,021.8 hrs</td><td>Baseline</td></tr>
+                    <tr><td>Mar 2026</td><td>$61.37</td><td>-23.3%</td><td>$0.36</td><td>2,736.3 hrs</td><td>Baseline</td></tr>
+                    <tr><td>Apr 2026</td><td>$68.39</td><td>+11.4%</td><td>$0.49</td><td>2,236.9 hrs</td><td>Baseline</td></tr>
+                    <tr class="row-highlight"><td>May 2026</td><td>$996.58</td><td>+1,357%</td><td>$0.78</td><td>93,410.2 hrs</td><td>Phase 2: The Inflection</td></tr>
+                    <tr><td>Jun 2026</td><td>$1,479.35</td><td>+48.4%</td><td>$0.87</td><td>168,005.2 hrs</td><td>Scale</td></tr>
+                    <tr><td>Jul 2026</td><td>$1,143.71</td><td>-22.7%</td><td>$0.89</td><td>148,904.7 hrs</td><td>Mid-year consolidation</td></tr>
+                    <tr><td>Aug 2026</td><td>$2,520.32</td><td>+120.4%</td><td>$0.99</td><td>361,382.6 hrs</td><td>Phase 3: Hyper-Growth</td></tr>
+                    <tr><td>Sep 2026</td><td>$3,261.18</td><td>+29.4%</td><td>$1.12</td><td>405,610.7 hrs</td><td>Hyper-Growth</td></tr>
+                    <tr class="row-highlight"><td>Oct 2026</td><td>$4,829.13</td><td>+48.1%</td><td>$1.39</td><td>576,970.5 hrs</td><td>All-Time Peak Month</td></tr>
+                    <tr class="row-total"><td>Jan–Oct Finalized</td><td>$14,457.94</td><td>—</td><td>$1.04</td><td>1,765,616.78 hrs</td><td>Nov 1–24 adds $2,276.58 & 301,714.43 hrs</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="sub-grid">
+                <div class="mini-panel">
+                  <h4>Why the May Inflection Compounded</h4>
+                  <ul class="detail-list">
+                    <li><strong>41x Watch Time Surge:</strong> Weekday consistency on Nintha Khao lifted monthly watch time from 2.2K hrs (Apr) to 93.4K hrs (May).</li>
+                    <li><strong>Steady Quarterly RPM Ladder:</strong> $0.12 (Jan) → $0.78 (May) → $0.99 (Aug) → $1.39 (Oct), driven by 7–10+ minute viewing sessions unlocking mid-roll ads.</li>
+                  </ul>
+                </div>
+                <div class="mini-panel">
+                  <h4>Dual-Engine Stability (YouTube Premium)</h4>
+                  <ul class="detail-list emerald">
+                    <li><strong>44.93% Premium Share ($7,519.64):</strong> Nearly half of channel income comes from paying YouTube Premium subscribers streaming long-form debriefs.</li>
+                    <li><strong>Ad Market Buffer:</strong> Watch-hour driven Premium payouts insulate revenue from seasonal CPM fluctuations.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 4: CONTENT FORMAT CONTRIBUTION (DOC SLIDE 3) -->
+      <!-- ===================================================================== -->
+      <section class="slide" data-index="3">
+        <div class="slide-header">
+          <div class="slide-kicker">Slide 04 • Format Architecture</div>
+          <h1 class="slide-title">Format Strategy: Long-Form Video Drives 99.5% of Channel Value</h1>
+          <p class="slide-subtitle">While Shorts delivered top-of-funnel reach, long-form storytelling generated 2.06M watch hours, 96.2% of new subscribers, and 99.8% of total earnings.</p>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-title">Views Share vs. Watch Time & Revenue Share</div>
+            <div class="card-sub">Shorts accounted for 6.24% of views but under 0.5% of watch time and 0.2% of revenue.</div>
+            <div class="chart-box compact"><canvas id="chartSlide4"></canvas></div>
+          </div>
+          <div class="card" style="display:flex; flex-direction:column; justify-content:space-between; gap:12px;">
+            <div class="mini-panel" style="border-left: 3px solid var(--accent-red);">
+              <h4>Long-Form Videos — Core Business Engine</h4>
+              <div class="tabular" style="font-size:13px; color:var(--text-secondary); line-height:1.5;">
+                <strong>21.66M views (93.76%)</strong> • <strong>2.06M hrs (99.51%)</strong> • <strong>$16,701.67 (99.80%)</strong><br>
+                $1.14 RPM (38x Shorts yield) | 5:42 AVD | +42,113 Net Subs (96.17%)
+              </div>
+            </div>
+            <div class="mini-panel" style="border-left: 3px solid var(--accent-cyan);">
+              <h4>YouTube Shorts — Discovery Teasers Only</h4>
+              <div class="tabular" style="font-size:13px; color:var(--text-secondary); line-height:1.5;">
+                <strong>1.44M views (6.24%)</strong> • <strong>9,973 hrs (0.48%)</strong> • <strong>$32.86 (0.20%)</strong><br>
+                $0.03 RPM | 24.9s AVD | +1,675 Net Subs (3.83%)
+              </div>
+            </div>
+            <div class="mini-panel" style="border-left: 3px solid var(--accent-amber);">
+              <h4>Live Streams — Untapped 2027 Territory</h4>
+              <div class="tabular" style="font-size:13px; color:var(--text-secondary); line-height:1.5;">
+                <strong>869 views (&lt;0.01%)</strong> • <strong>48.3 hrs (&lt;0.01%)</strong> • <strong>$0.00 Revenue</strong><br>
+                Dormant in 2026; high potential for breaking-news live reactions in 2027.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="expand-stack">
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge">11-Metric Matrix</span>
+                <span class="expand-title">Full Format Performance Comparison Matrix</span>
+              </div>
+              <span class="expand-hint">Expand Matrix <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="table-wrap">
+                <table class="tabular">
+                  <thead>
+                    <tr><th>Metric / Dimension</th><th>Long-Form Videos</th><th>YouTube Shorts</th><th>Live Streams</th><th>Channel Total</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Total Views</td><td>21,659,563</td><td>1,441,637</td><td>869</td><td>23,102,069</td></tr>
+                    <tr><td>Share of Views (%)</td><td>93.76%</td><td>6.24%</td><td>&lt;0.01%</td><td>100%</td></tr>
+                    <tr class="row-highlight"><td>Watch Time (Hours)</td><td>2,057,310.27 hrs</td><td>9,972.63 hrs</td><td>48.30 hrs</td><td>2,067,331.29 hrs</td></tr>
+                    <tr><td>Share of Watch Time (%)</td><td>99.51%</td><td>0.48%</td><td>&lt;0.01%</td><td>100%</td></tr>
+                    <tr><td>Avg. View Duration (AVD)</td><td>5m 42s (342s)</td><td>24.9 sec</td><td>3m 20s</td><td>5m 22s (Overall)</td></tr>
+                    <tr class="row-highlight"><td>Estimated Revenue (USD)</td><td>$16,701.67</td><td>$32.86</td><td>$0.00</td><td>$16,734.53</td></tr>
+                    <tr><td>Share of Revenue (%)</td><td>99.80%</td><td>0.20%</td><td>0.00%</td><td>100%</td></tr>
+                    <tr><td>Format RPM (USD)</td><td>$1.14</td><td>$0.03</td><td>$0.00</td><td>$1.07</td></tr>
+                    <tr><td>Click-Through Rate (CTR)</td><td>5.76%</td><td>N/A (Feed)</td><td>1.83%</td><td>5.74%</td></tr>
+                    <tr><td>Net Subscribers Gained</td><td>+42,113</td><td>+1,675</td><td>0</td><td>+43,788</td></tr>
+                    <tr><td>Subscribers Share (%)</td><td>96.17%</td><td>3.83%</td><td>0.00%</td><td>100%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge emerald">Operational Playbook</span>
+                <span class="expand-title">Strategic Content Roles & Return on Attention</span>
+              </div>
+              <span class="expand-hint">Expand Takeaways <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <ul class="detail-list emerald">
+                <li><strong>38x Monetization Advantage:</strong> Every 1,000 Long-Form views returned <strong>$1.14</strong> compared to just <strong>$0.03</strong> on Shorts, while converting 96.2% of all new permanent channel followers.</li>
+                <li><strong>Repurpose Shorts Strictly as Trailers:</strong> Stop evaluating Shorts on direct revenue ($32.86 total). Cut the tensest 30–45 second hooks from daily news episodes to funnel casual feed scrollers directly into full episodes.</li>
+                <li><strong>Activate Live Streams for Breaking Peaks:</strong> With under 1,000 live views in 2026, planned live Q&A and breaking talk-show debriefs represent a clean, untapped engagement pillar for 2027.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 5: CONTENT STRATEGY — WHAT WORKED VS DIDN'T (DOC SLIDE 4) -->
+      <!-- ===================================================================== -->
+      <section class="slide" data-index="4">
+        <div class="slide-header">
+          <div class="slide-kicker emerald">Slide 05 • Editorial Strategy</div>
+          <h1 class="slide-title">Content Strategy: Emotional Conflict Wins; Niche Formats Disconnect</h1>
+          <p class="slide-subtitle">High-stakes social controversy drove 500K+ views and 7% CTRs, while spiritual podcasts struggled below 3.5% CTR and drama recaps faced Content ID blocks.</p>
+        </div>
+
+        <div class="two-col">
+          <div class="card" style="border-top: 3px solid var(--accent-emerald);">
+            <div class="card-title"><span>✓ What Worked: The Flagship Formula</span><span class="pill pill-green">6.6%–7.3% CTR</span></div>
+            <div class="card-sub">Nintha Khao dominated via post-broadcast companionship and high-stakes human drama.</div>
+            <ul class="detail-list emerald">
+              <li><strong>Top 5 Videos Alone &gt;2.6M Views:</strong> Immediate debriefs following live national TV broadcasts (<em>Hone Krasae</em>) captured pre-heated emotional investment.</li>
+              <li><strong>Optimal Runtime (20–40 min):</strong> Extended conversational pacing delivered <strong>8–15 min AVD</strong> and rich mid-roll ad inventory.</li>
+              <li><strong>Personal Betrayal & Confrontation:</strong> Leaked audio, family feuds, and public clashes consistently pushed CTR above 6.5%–7.3%.</li>
+            </ul>
+          </div>
+
+          <div class="card" style="border-top: 3px solid var(--accent-amber);">
+            <div class="card-title"><span>⚠ What Underperformed: Root Friction</span><span class="pill pill-amber">Needs Refactoring</span></div>
+            <div class="card-sub">Intent mismatch, copyright leakage, and passive framing capped non-core formats.</div>
+            <ul class="detail-list amber">
+              <li><strong>SEERCRET PODCAST (3 eps | 10.3K views | $2.81):</strong> Astrology/horoscope interviews clashed with news-seeking subscribers, dropping CTR to <strong>3.12%</strong>.</li>
+              <li><strong>Nintha Series (13 eps | 209.2K views | $46.21):</strong> Solid <strong>5.59% CTR</strong>, but 6 of 13 episodes were demonetized ($0.00) by Content ID claims on drama footage.</li>
+              <li><strong>Passive/Technical News:</strong> Regulatory disputes (e.g., RAAT Go-Kart drama) dropped CTR to <strong>1.2%–2.0%</strong>, cutting views by over 50%.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="callout">
+          <strong>2027 Editorial Greenlight Rules:</strong> (1) Require personal tension or direct conflict to clear the <strong>5.7% CTR benchmark</strong>; (2) Reframe spiritual/lifestyle shows around real-world controversies or fraud exposés; (3) Preserve 25–35 min flagship runtimes to protect 10+ min AVD.
+        </div>
+
+        <div class="expand-stack">
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge">Benchmark Table</span>
+                <span class="expand-title">Side-by-Side Performance: Top Hits vs. Channel Average vs. Experimental</span>
+              </div>
+              <span class="expand-hint">Expand Comparison <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="table-wrap">
+                <table class="tabular">
+                  <thead>
+                    <tr><th>Tier</th><th>Program / Episode Title</th><th>Views</th><th>CTR (%)</th><th>AVD</th><th>Retention / Notes</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><span class="pill pill-green">Top Tier</span></td><td>Nintha Khao: Hone Krasae Today — Tense Studio Threat, Num Kanchai Calls Police</td><td>628.4K</td><td>7.32%</td><td>05:52</td><td>High early retention</td></tr>
+                    <tr><td><span class="pill pill-green">Top Tier</span></td><td>Nintha Khao: Hone Krasae — Auntie Maew's Son Reveals Leaked Audio</td><td>578.4K</td><td>6.82%</td><td>11:12</td><td>Sustained through middle</td></tr>
+                    <tr><td><span class="pill pill-green">Top Tier</span></td><td>Nintha Khao: Hone Krasae — Yat vs. Ta Epic Feud</td><td>453.9K</td><td>6.59%</td><td>15:17</td><td>Exceptional completion</td></tr>
+                    <tr class="row-total"><td><span class="pill pill-cyan">Channel Avg</span></td><td>All Long-Form 2026 Average (148 Flagship Eps)</td><td>~146K</td><td>5.76%</td><td>05:42</td><td>Baseline benchmark</td></tr>
+                    <tr><td><span class="pill pill-amber">Low News</span></td><td>Nintha Khao: RAAT Go-Kart Federation Dispute</td><td>157K</td><td>2.01%</td><td>04:30</td><td>Technical topic; below benchmark</td></tr>
+                    <tr><td><span class="pill pill-violet">Experimental</span></td><td>Nintha Series: 13-Episode Average (incl. Khom Khlang & UNSEEN)</td><td>16.1K avg (209.2K tot)</td><td>5.59%</td><td>05:55</td><td>Strong CTR; 6/13 Content ID blocked</td></tr>
+                    <tr><td><span class="pill pill-red">Experimental</span></td><td>SEERCRET PODCAST EP.1 — Mor Fai (The Magic Queen)</td><td>7.6K</td><td>3.54%</td><td>03:53</td><td>17.2% completion</td></tr>
+                    <tr><td><span class="pill pill-red">Experimental</span></td><td>SEERCRET PODCAST EP.3 — Arjan Mongkol</td><td>1.1K</td><td>2.00%</td><td>05:34</td><td>25.3% completion</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge amber">Root-Cause Diagnostics</span>
+                <span class="expand-title">Deep Analysis: Why Winners Scaled & Where Leakage Occurred</span>
+              </div>
+              <span class="expand-hint">Expand Analysis <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="sub-grid">
+                <div class="mini-panel">
+                  <h4>Why Nintha Khao Dominates</h4>
+                  <ul class="detail-list emerald">
+                    <li><strong>Post-Show Companion Effect:</strong> Viewers arrive pre-invested after daytime live TV controversies and seek an unfiltered evening debrief.</li>
+                    <li><strong>Extended Viewer Stamina:</strong> 25–45 min episodes achieved 11–15 min AVDs, proving audiences prefer conversational breakdowns over rushed summaries.</li>
+                  </ul>
+                </div>
+                <div class="mini-panel">
+                  <h4>Why Spin-Offs Faced Friction</h4>
+                  <ul class="detail-list amber">
+                    <li><strong>SEERCRET Intent Mismatch:</strong> Browse feed viewers skipped astrology interviews (EP.1: 7,623 → EP.2: 1,631 → EP.3: 1,062 views).</li>
+                    <li><strong>Nintha Series Copyright Leakage:</strong> Top recaps like <em>Khom Khlang EP.3–4</em> (16,258 views) earned $0.00 due to broadcast footage Content ID claims, while sequential episode numbers capped casual clicks.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 6: AUDIENCE DISCOVERY & TRAFFIC SOURCES (DOC SLIDE 5) -->
+      <!-- ===================================================================== -->
+      <section class="slide" data-index="5">
+        <div class="slide-header">
+          <div class="slide-kicker">Slide 06 • Discovery Ecosystem</div>
+          <h1 class="slide-title">Audience Discovery: The Feed-Driven Recommendation Engine</h1>
+          <p class="slide-subtitle">Over 75% of views and 89.6% of watch time came from YouTube Browse Feeds and Suggested Videos, validating packaging appeal and session retention.</p>
+        </div>
+
+        <div class="kpi-grid-3">
+          <div class="kpi-card accent-red">
+            <div class="kpi-label">Browse Features (Home Feed)</div>
+            <div class="kpi-value tabular">46.30%</div>
+            <div class="kpi-delta">7.05% CTR • 10.69M Views</div>
+            <div class="kpi-note">74.6M impressions | 886.4K watch hrs | 8:27 AVD</div>
+          </div>
+          <div class="kpi-card accent-cyan">
+            <div class="kpi-label">Suggested Videos (#1 Watch Time)</div>
+            <div class="kpi-value tabular">46.70% WT</div>
+            <div class="kpi-delta info">965.1K Watch Hrs • 8:39 AVD</div>
+            <div class="kpi-note">29.47% of views (6.81M) | 5.61% CTR</div>
+          </div>
+          <div class="kpi-card accent-emerald">
+            <div class="kpi-label">YouTube Search (Intent Traffic)</div>
+            <div class="kpi-value tabular">15.60%</div>
+            <div class="kpi-delta info">3.60M Views • 3.18% CTR</div>
+            <div class="kpi-note">77.6K watch hrs | 3:47 AVD on trending queries</div>
+          </div>
+        </div>
+
+        <div class="card" style="margin-bottom: 18px;">
+          <div class="card-title">Views Share (%) vs. Watch Time Share (%) by Discovery Source</div>
+          <div class="card-sub">Suggested Videos punches well above its view share (29.5% views → 46.7% watch time), acting as the channel's binge-session engine.</div>
+          <div class="chart-box compact"><canvas id="chartSlide6"></canvas></div>
+        </div>
+
+        <div class="expand-stack">
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge">Complete 10-Source Audit</span>
+                <span class="expand-title">Full 2026 Traffic Source Breakdown (Views, Impressions, CTR, Watch Time & AVD)</span>
+              </div>
+              <span class="expand-hint">Expand Table <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="table-wrap">
+                <table class="tabular">
+                  <thead>
+                    <tr><th>Traffic Source</th><th>Views</th><th>Views %</th><th>Impressions</th><th>Imp. %</th><th>CTR</th><th>Watch Time</th><th>WT %</th><th>AVD</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr class="row-highlight"><td>Browse Features (Home)</td><td>10,693,558</td><td>46.30%</td><td>74,608,016</td><td>42.37%</td><td>7.05%</td><td>886,414.3 hrs</td><td>42.89%</td><td>8m 27s</td></tr>
+                    <tr class="row-highlight"><td>Suggested Videos</td><td>6,807,267</td><td>29.47%</td><td>63,906,948</td><td>36.29%</td><td>5.61%</td><td>965,107.0 hrs</td><td>46.70%</td><td>8m 39s</td></tr>
+                    <tr><td>YouTube Search</td><td>3,602,479</td><td>15.60%</td><td>31,817,518</td><td>18.07%</td><td>3.18%</td><td>77,642.3 hrs</td><td>3.76%</td><td>3m 47s</td></tr>
+                    <tr><td>Shorts Feed</td><td>561,464</td><td>2.43%</td><td>—</td><td>—</td><td>—</td><td>2,733.0 hrs</td><td>0.13%</td><td>0m 36s</td></tr>
+                    <tr><td>Other YouTube Features</td><td>392,123</td><td>1.70%</td><td>—</td><td>—</td><td>—</td><td>50,402.4 hrs</td><td>2.44%</td><td>7m 55s</td></tr>
+                    <tr><td>Direct / Unknown Mobile</td><td>353,690</td><td>1.53%</td><td>—</td><td>—</td><td>—</td><td>15,062.1 hrs</td><td>0.73%</td><td>2m 52s</td></tr>
+                    <tr><td>Channel Pages</td><td>306,537</td><td>1.33%</td><td>4,729,302</td><td>2.69%</td><td>4.56%</td><td>42,799.0 hrs</td><td>2.07%</td><td>9m 26s</td></tr>
+                    <tr><td>External (Websites/Apps)</td><td>238,584</td><td>1.03%</td><td>—</td><td>—</td><td>—</td><td>6,425.8 hrs</td><td>0.31%</td><td>1m 41s</td></tr>
+                    <tr><td>Playlists</td><td>107,885</td><td>0.47%</td><td>1,032,279</td><td>0.59%</td><td>3.30%</td><td>17,073.4 hrs</td><td>0.83%</td><td>9m 43s</td></tr>
+                    <tr><td>Other (Notifications, etc.)</td><td>32,683</td><td>0.14%</td><td>—</td><td>—</td><td>—</td><td>2,990.2 hrs</td><td>0.14%</td><td>~3m 30s</td></tr>
+                    <tr class="row-total"><td>Total Channel</td><td>23,102,069</td><td>100%</td><td>176,119,856</td><td>100%</td><td>5.74%</td><td>2,067,331.29 hrs</td><td>100%</td><td>5m 22s (WP: 7:51)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="footnote">Note: YouTube updated view-counting methods on August 27 and November 16, 2026; overall AVD (5:22) includes Shorts while weighted watch-page session duration is 7:51.</p>
+            </div>
+          </div>
+
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge emerald">Discovery Insights</span>
+                <span class="expand-title">Viewer Journey Mechanics & Loyalty Multipliers</span>
+              </div>
+              <span class="expand-hint">Expand Insights <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <ul class="detail-list">
+                <li><strong>Front-Door Conversion (Browse 7.05% CTR):</strong> Winning 7.05% CTR across nearly 75M Home Feed impressions confirms high-contrast portraits and bold conversational Thai headlines break through feed clutter.</li>
+                <li><strong>The Binge-Session Engine (Suggested 965K hrs):</strong> Viewers clicking from "Up Next" next to related broadcasts stay <strong>8 minutes 39 seconds</strong> on average, proving editorial pacing holds attention through mid-roll slots.</li>
+                <li><strong>High-Intent Loyalty Loops (Playlists & Channel Pages):</strong> Though under 2% of views combined, Channel Pages (9:26 AVD) and Playlists (9:43 AVD) deliver the longest average sessions across the entire channel.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 7: AUDIENCE DEMOGRAPHIC PROFILE (DOC SLIDE 6) -->
+      <!-- ===================================================================== -->
+      <section class="slide" data-index="6">
+        <div class="slide-header">
+          <div class="slide-kicker violet">Slide 07 • Commercial Audience Profile</div>
+          <h1 class="slide-title">Audience Profile: High-Value Working Adults in Evening Prime-Time</h1>
+          <p class="slide-subtitle">62.8% of viewers fall in the prime 25–44 commercial bracket with a balanced gender split, streaming extended sessions on mobile and living room screens.</p>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card accent-violet">
+            <div class="kpi-label">Prime Age (25–44)</div>
+            <div class="kpi-value tabular">62.83%</div>
+            <div class="kpi-delta violet">36.5% (25–34) • 26.3% (35–44)</div>
+            <div class="kpi-note">~79% aged 25–54 decision makers</div>
+          </div>
+          <div class="kpi-card accent-cyan">
+            <div class="kpi-label">Gender Balance</div>
+            <div class="kpi-value tabular">52% / 48%</div>
+            <div class="kpi-delta info">52.17% Female • 47.67% Male</div>
+            <div class="kpi-note">Unfragmented mainstream brand appeal</div>
+          </div>
+          <div class="kpi-card accent-emerald">
+            <div class="kpi-label">Living Room & Tablet WT</div>
+            <div class="kpi-value tabular">24.53%</div>
+            <div class="kpi-delta">Tablet 13:30 • TV 8:39 AVD</div>
+            <div class="kpi-note">Mobile leads views (69.0%) at 7:36 AVD</div>
+          </div>
+          <div class="kpi-card accent-red">
+            <div class="kpi-label">Peak Viewing Window</div>
+            <div class="kpi-value tabular">6–10 PM</div>
+            <div class="kpi-delta">Daily GMT+7 • Fri 1 PM Spike</div>
+            <div class="kpi-note">92.6% Thailand + 1.7M+ Overseas Diaspora</div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div class="card">
+            <div class="card-title">Age & Gender Viewership Distribution (%)</div>
+            <div class="card-sub">Balanced male/female engagement peaking squarely among 25–44 working professionals.</div>
+            <div class="chart-box compact"><canvas id="chartSlide7Age"></canvas></div>
+          </div>
+          <div class="card">
+            <div class="card-title">Device Share vs. Watch Time Depth</div>
+            <div class="card-sub">Tablets (8.0% views → 13.5% watch time) and Smart TVs index heavily on long sessions.</div>
+            <div class="chart-box compact"><canvas id="chartSlide7Device"></canvas></div>
+          </div>
+        </div>
+
+        <div class="expand-stack">
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge violet">Demographics & Devices</span>
+                <span class="expand-title">Full Age, Gender & Screen-Type Tables</span>
+              </div>
+              <span class="expand-hint">Expand Tables <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="section-divider" style="margin-top:0;">Age & Gender Distribution (2026 Full Year)</div>
+              <div class="table-wrap" style="margin-bottom: 18px;">
+                <table class="tabular">
+                  <thead>
+                    <tr><th>Age Bracket</th><th>Female %</th><th>Male %</th><th>Total Share</th><th>AVD</th><th>Commercial Classification</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>13–17 years</td><td>0.29%</td><td>0.20%</td><td>0.49%</td><td>6m 15s</td><td>Minor / School-age</td></tr>
+                    <tr><td>18–24 years</td><td>3.65%</td><td>2.86%</td><td>6.51%</td><td>8m 23s</td><td>University / Early Career</td></tr>
+                    <tr class="row-highlight"><td>25–34 years</td><td>18.72%</td><td>17.82%</td><td>36.54%</td><td>8m 31s</td><td>Primary Core: Young Professionals</td></tr>
+                    <tr class="row-highlight"><td>35–44 years</td><td>13.02%</td><td>13.27%</td><td>26.29%</td><td>8m 15s</td><td>Secondary Core: Mature Adults</td></tr>
+                    <tr><td>45–54 years</td><td>8.36%</td><td>7.71%</td><td>16.07%</td><td>7m 31s</td><td>Established Adults</td></tr>
+                    <tr><td>55–64 years</td><td>4.98%</td><td>3.56%</td><td>8.54%</td><td>6m 33s</td><td>Pre-Retirement</td></tr>
+                    <tr><td>65+ years</td><td>3.15%</td><td>2.25%</td><td>5.40%</td><td>5m 58s</td><td>Senior / Retirees</td></tr>
+                    <tr class="row-total"><td>All Ages Total</td><td>52.17%</td><td>47.67%</td><td>100.00%</td><td>~8m 00s</td><td>0.16% user-specified gender</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="section-divider">Device & Screen Type Engagement</div>
+              <div class="table-wrap">
+                <table class="tabular">
+                  <thead>
+                    <tr><th>Device Category</th><th>Views Share</th><th>Watch Time Share</th><th>AVD</th><th>Viewing Behavior</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Mobile Phone</td><td>68.98%</td><td>65.13%</td><td>7m 36s</td><td>Core on-the-go & evening feed discovery</td></tr>
+                    <tr><td>Computer (Desktop)</td><td>12.55%</td><td>10.14%</td><td>6m 30s</td><td>Daytime office/workplace background listening</td></tr>
+                    <tr class="row-highlight"><td>TV (Living Room)</td><td>10.31%</td><td>11.06%</td><td>8m 39s</td><td>Group & family co-viewing; higher watch time index</td></tr>
+                    <tr class="row-highlight"><td>Tablet</td><td>8.03%</td><td>13.47%</td><td>13m 30s</td><td>Highest engagement screen; relaxed sofa/bedside streaming</td></tr>
+                    <tr><td>Other / Game Console</td><td>0.13%</td><td>0.20%</td><td>12m 10s</td><td>Niche living room usage</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge">Geography & Loyalty</span>
+                <span class="expand-title">Global Diaspora Markets, Subscriber Split & Prime Hours</span>
+              </div>
+              <span class="expand-hint">Expand Footprint <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="table-wrap" style="margin-bottom: 16px;">
+                <table class="tabular">
+                  <thead>
+                    <tr><th>Territory</th><th>2026 Views</th><th>Views %</th><th>Watch Time</th><th>AVD</th><th>Market Significance</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr class="row-total"><td>Thailand</td><td>21,382,748</td><td>92.57%</td><td>1,901,800.8 hrs</td><td>5m 20s</td><td>Core domestic audience base</td></tr>
+                    <tr><td>United States</td><td>299,332</td><td>1.30%</td><td>29,327.6 hrs</td><td>5m 52s</td><td>Large expat community (High ad RPM)</td></tr>
+                    <tr><td>Laos</td><td>211,069</td><td>0.91%</td><td>17,761.4 hrs</td><td>5m 02s</td><td>Cross-border cultural affinity</td></tr>
+                    <tr><td>Australia</td><td>106,093</td><td>0.46%</td><td>12,622.6 hrs</td><td>7m 08s</td><td>High-retention Thai professionals</td></tr>
+                    <tr><td>Japan</td><td>85,065</td><td>0.37%</td><td>9,705.0 hrs</td><td>6m 50s</td><td>Expat diaspora workforce</td></tr>
+                    <tr><td>Germany</td><td>67,961</td><td>0.29%</td><td>6,491.2 hrs</td><td>5m 43s</td><td>European expat base</td></tr>
+                    <tr><td>South Korea</td><td>54,389</td><td>0.24%</td><td>6,219.4 hrs</td><td>6m 51s</td><td>Overseas Thai community</td></tr>
+                    <tr><td>Other (Global)</td><td>498,884</td><td>1.86%</td><td>82,919.4 hrs</td><td>~9m 58s</td><td>Dispersed international viewership</td></tr>
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="sub-grid">
+                <div class="mini-panel">
+                  <h4>Subscriber vs. Non-Subscriber Dynamic</h4>
+                  <ul class="detail-list">
+                    <li><strong>Non-Subscribers:</strong> 87.11% of views | 81.33% of watch time — powers broad viral reach across YouTube feeds.</li>
+                    <li><strong>Subscribers:</strong> 12.87% of views | <strong>18.66% of watch time</strong> — loyal followers watch <strong>45% longer per visit</strong>.</li>
+                  </ul>
+                </div>
+                <div class="mini-panel">
+                  <h4>Prime Viewing Windows (GMT+7)</h4>
+                  <ul class="detail-list emerald">
+                    <li><strong>Primetime Peak:</strong> 6:00 PM – 10:00 PM daily ("Very High" concurrency).</li>
+                    <li><strong>Friday Early Spike:</strong> Viewership accelerates from 1:00 PM – 2:00 PM; steady daytime background listening 9 AM – 5 PM.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 8: FLAGSHIP DEEP-DIVE — NINTHA KHAO -->
+      <!-- ===================================================================== -->
+      <section class="slide" data-index="7">
+        <div class="slide-header">
+          <div class="slide-kicker red">Slide 08 • Flagship Franchise Deep-Dive</div>
+          <h1 class="slide-title">Flagship Deep-Dive: "Nintha Khao" — The 2026 Growth Engine</h1>
+          <p class="slide-subtitle">Delivered consistently Monday–Friday across 148 long-form episodes, Nintha Khao generated 20.39M views (88.25%), 1.96M watch hours (94.70%), and $15,813.72 revenue (94.50%).</p>
+        </div>
+
+        <div class="kpi-grid">
+          <div class="kpi-card accent-red">
+            <div class="kpi-label">Revenue Contribution</div>
+            <div class="kpi-value tabular">$15,813.72</div>
+            <div class="kpi-delta">94.50% of Channel Total</div>
+            <div class="kpi-note">$1.18 Avg RPM (Top hits: $1.73–$1.81)</div>
+          </div>
+          <div class="kpi-card accent-cyan">
+            <div class="kpi-label">Program Views (148 Eps)</div>
+            <div class="kpi-value tabular">20.39M</div>
+            <div class="kpi-delta info">137,762 Avg • 628,411 Peak</div>
+            <div class="kpi-note">3x–8x volume of standard uploads</div>
+          </div>
+          <div class="kpi-card accent-emerald">
+            <div class="kpi-label">Avg. View Duration</div>
+            <div class="kpi-value tabular">08:14</div>
+            <div class="kpi-delta">7:30 – 15:17 on Hits</div>
+            <div class="kpi-note">1,957,840.40 watch hrs (94.70% share)</div>
+          </div>
+          <div class="kpi-card accent-violet">
+            <div class="kpi-label">Click-Through Rate</div>
+            <div class="kpi-value tabular">6.64%</div>
+            <div class="kpi-delta violet">6.0% – 8.35% on Hits</div>
+            <div class="kpi-note">+15% to +35% above channel benchmark</div>
+          </div>
+        </div>
+
+        <div class="kpi-grid-3">
+          <div class="card" style="border-top: 3px solid var(--accent-red);">
+            <div class="card-title">Pillar A: Post-Broadcast Companion</div>
+            <p class="card-sub" style="margin-bottom:10px;">Unfiltered evening debriefs of major daytime live TV broadcasts (<em>Hone Krasae</em>).</p>
+            <span class="pill pill-red tabular">Avg &gt;380K Views • 6.7% CTR</span>
+          </div>
+          <div class="card" style="border-top: 3px solid var(--accent-cyan);">
+            <div class="card-title">Pillar B: Leaked Evidence & Clues</div>
+            <p class="card-sub" style="margin-bottom:10px;">Step-by-step breakdowns of leaked phone audio, chat logs, and sudden legal turns.</p>
+            <span class="pill pill-cyan tabular">Highest AVD: 11–15+ Minutes</span>
+          </div>
+          <div class="card" style="border-top: 3px solid var(--accent-violet);">
+            <div class="card-title">Pillar C: Influencer & Charity Fallout</div>
+            <p class="card-sub" style="margin-bottom:10px;">Multi-part disputes involving prominent creators, celebrities, or donation scandals.</p>
+            <span class="pill pill-violet tabular">Rapid 6–12 Hr Click Velocity</span>
+          </div>
+        </div>
+
+        <div class="expand-stack">
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge red">Hall of Fame</span>
+                <span class="expand-title">Top 5 Most-Viewed Episodes of 2026 (2.67M Views | 230.9K Hrs | $1,812.45)</span>
+              </div>
+              <span class="expand-hint">Expand Leaderboard <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="table-wrap">
+                <table class="tabular">
+                  <thead>
+                    <tr><th>Rank</th><th>Episode Title & Release Date</th><th>Views</th><th>CTR</th><th>AVD</th><th>Watch Hours</th><th>Revenue / Angle</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr class="row-highlight">
+                      <td>#1</td>
+                      <td>Nintha Khao 21/05/26: Hone Krasae Today — Tense Studio Threat, Num Kanchai Calls Police</td>
+                      <td>628,411</td><td>7.32%</td><td>05:52</td><td>58,479.87 hrs</td>
+                      <td><strong>$345.99</strong> ($0.58 RPM) — Live TV Crisis & Police Intervention</td>
+                    </tr>
+                    <tr class="row-highlight">
+                      <td>#2</td>
+                      <td>Nintha Khao 08/10/26: Hone Krasae — Auntie Maew's Son Reveals Leaked Audio</td>
+                      <td>578,445</td><td>6.82%</td><td>11:12</td><td>50,128.16 hrs</td>
+                      <td><strong>$460.99</strong> ($1.73 RPM) — Secret Audio & Inheritance Battle</td>
+                    </tr>
+                    <tr>
+                      <td>#3</td>
+                      <td>Nintha Khao 05/10/26: Hone Krasae or Vertical Drama? Mother Sent to Rehab by Son</td>
+                      <td>566,482</td><td>6.06%</td><td>09:04</td><td>39,053.27 hrs</td>
+                      <td><strong>$357.12</strong> ($1.39 RPM) — Family Feud & Asset Grab</td>
+                    </tr>
+                    <tr>
+                      <td>#4</td>
+                      <td>Nintha Khao 31/08/26: Hone Krasae — Yat vs. Ta Epic Feud</td>
+                      <td>453,936</td><td>6.59%</td><td>15:17</td><td>53,985.32 hrs</td>
+                      <td><strong>$385.65</strong> ($1.81 RPM) — Creator Partner Breakup</td>
+                    </tr>
+                    <tr>
+                      <td>#5</td>
+                      <td>Nintha Khao 21/10/26: Fiery Hone Krasae! Fern of Si Samrong Confrontation</td>
+                      <td>441,733</td><td>6.41%</td><td>08:18</td><td>29,237.98 hrs</td>
+                      <td><strong>$262.70</strong> ($1.25 RPM) — Viral Daytime Broadcast Debrief</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="footnote">Note: The Top 5 Most-Viewed episodes generated 2,669,007 views, 230,884.60 watch hours, and $1,812.45; the Top 5 Highest-Grossing episodes (detailed on Slide 01) generated 2,176,016 views, 273,315.64 watch hours, and $2,078.63.</p>
+            </div>
+          </div>
+
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge">Scorecard & Discipline</span>
+                <span class="expand-title">Program Benchmark Comparison & Operational Routine</span>
+              </div>
+              <span class="expand-hint">Expand Routine <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="sub-grid">
+                <div class="mini-panel">
+                  <h4>Flagship vs. Channel Benchmark</h4>
+                  <ul class="detail-list">
+                    <li><strong>Episode Views:</strong> 137,762 avg (200K–450K+ hits) vs. ~60,000 overall upload avg.</li>
+                    <li><strong>Episode Runtime:</strong> 18–35 minutes — ideal structure for mid-roll ad density.</li>
+                    <li><strong>Publishing Cadence:</strong> Predictable Monday–Friday schedule (148 episodes) creating a weekday viewing appointment.</li>
+                  </ul>
+                </div>
+                <div class="mini-panel">
+                  <h4>Editorial & Packaging Craft</h4>
+                  <ul class="detail-list red">
+                    <li><strong>Conversational Pacing:</strong> Trades stiff teleprompter news reading for an approachable "gossip debrief" tone sustaining 8–15 min sessions.</li>
+                    <li><strong>Visual Discipline:</strong> High-contrast portraits, expressive reactions, bold text questions, and direct emotive quotes win clicks on Home feeds.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 9: INCUBATOR DEEP-DIVE — SEERCRET & NINTHA SERIES -->
+      <!-- ===================================================================== -->
+      <section class="slide" data-index="8">
+        <div class="slide-header">
+          <div class="slide-kicker violet">Slide 09 • New Program Incubator</div>
+          <h1 class="slide-title">New Format Exploration: SEERCRET PODCAST & Nintha Series</h1>
+          <p class="slide-subtitle">Late-2026 experiments validated studio quality and drama click appeal (5.59% CTR), while exposing intent friction on spirituality and Content ID monetization leakage.</p>
+        </div>
+
+        <div class="two-col">
+          <!-- SEERCRET Card -->
+          <div class="card" style="border-top: 3px solid var(--accent-violet);">
+            <div class="card-title">
+              <span>SEERCRET PODCAST</span>
+              <span class="pill pill-violet">100% Copyright Clean</span>
+            </div>
+            <div class="card-sub">Launched Early Nov 2026 • Spiritual masters, astrology & palmistry (3 Episodes)</div>
+            <div class="sub-grid tabular" style="gap:10px; margin-bottom:14px;">
+              <div class="mini-panel">
+                <div style="font-size:11px; color:var(--text-muted); text-transform:uppercase;">Total Views / Peak</div>
+                <div style="font-size:18px; font-weight:700; margin-top:4px;">10,316 <span style="font-size:12px; color:var(--text-secondary);">(Peak 7.6K)</span></div>
+              </div>
+              <div class="mini-panel">
+                <div style="font-size:11px; color:var(--text-muted); text-transform:uppercase;">CTR / AVD</div>
+                <div style="font-size:18px; font-weight:700; margin-top:4px;">3.12% <span style="font-size:12px; color:var(--text-secondary);">/ 04:06</span></div>
+              </div>
+              <div class="mini-panel">
+                <div style="font-size:11px; color:var(--text-muted); text-transform:uppercase;">Est. Revenue</div>
+                <div style="font-size:18px; font-weight:700; margin-top:4px;">$2.81 <span style="font-size:12px; color:var(--text-secondary);">($0.76 RPM)</span></div>
+              </div>
+              <div class="mini-panel">
+                <div style="font-size:11px; color:var(--text-muted); text-transform:uppercase;">Core Friction</div>
+                <div style="font-size:13px; font-weight:700; color:#FCD34D; margin-top:6px;">Audience Intent Mismatch</div>
+              </div>
+            </div>
+            <p style="font-size:13px; color:var(--text-secondary); line-height:1.5;"><strong>2027 Pivot:</strong> Shift from soft lifestyle horoscopes to <em>Scandal & Skepticism</em> (exposing fraudulent gurus, fake rituals, and spiritual lawsuits).</p>
+          </div>
+
+          <!-- Nintha Series Card -->
+          <div class="card" style="border-top: 3px solid var(--accent-cyan);">
+            <div class="card-title">
+              <span>Nintha Series</span>
+              <span class="pill pill-amber">6 / 13 Content ID Blocked</span>
+            </div>
+            <div class="card-sub">Launched Late Sep – Nov 2026 • TV/OTT drama recaps & show reactions (13 Episodes)</div>
+            <div class="sub-grid tabular" style="gap:10px; margin-bottom:14px;">
+              <div class="mini-panel">
+                <div style="font-size:11px; color:var(--text-muted); text-transform:uppercase;">Total Views / Avg</div>
+                <div style="font-size:18px; font-weight:700; margin-top:4px;">209,181 <span style="font-size:12px; color:var(--text-secondary);">(16.1K/ep)</span></div>
+              </div>
+              <div class="mini-panel">
+                <div style="font-size:11px; color:var(--text-muted); text-transform:uppercase;">CTR / AVD</div>
+                <div style="font-size:18px; font-weight:700; margin-top:4px;">5.59% <span style="font-size:12px; color:var(--text-secondary);">/ 05:55</span></div>
+              </div>
+              <div class="mini-panel">
+                <div style="font-size:11px; color:var(--text-muted); text-transform:uppercase;">Est. Revenue</div>
+                <div style="font-size:18px; font-weight:700; margin-top:4px;">$46.21 <span style="font-size:12px; color:var(--text-secondary);">($0.52 RPM)</span></div>
+              </div>
+              <div class="mini-panel">
+                <div style="font-size:11px; color:var(--text-muted); text-transform:uppercase;">Core Friction</div>
+                <div style="font-size:13px; font-weight:700; color:#FCD34D; margin-top:6px;">Content ID + Episodic Cap</div>
+              </div>
+            </div>
+            <p style="font-size:13px; color:var(--text-secondary); line-height:1.5;"><strong>2027 Pivot:</strong> Replace unlicensed footage with fair-use stills/PiP and shift from sequential <em>EP.#</em> recaps to standalone cultural phenomenon debriefs.</p>
+          </div>
+        </div>
+
+        <div class="callout red">
+          <strong>The 2027 Rule of Adjacent Programming:</strong> Any spin-off on Sanook.com must align with the emotional core driving viewers to the channel—<strong>conflict, controversy, investigation, and debriefing</strong>—to protect the 5%+ CTR benchmark.
+        </div>
+
+        <div class="expand-stack">
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge">Side-by-Side Matrix</span>
+                <span class="expand-title">Full Incubator Scorecard vs. Flagship Benchmark</span>
+              </div>
+              <span class="expand-hint">Expand Matrix <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="table-wrap">
+                <table class="tabular">
+                  <thead>
+                    <tr><th>Metric</th><th>SEERCRET PODCAST</th><th>Nintha Series</th><th>Flagship (Nintha Khao)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Launch Timing</td><td>Early Nov 2026</td><td>Late Sep – Nov 2026</td><td>Scaled May 2026</td></tr>
+                    <tr><td>Core Subject</td><td>Spiritual masters, astrology, fortune</td><td>TV/OTT drama recaps (<em>Khom Khlang</em>) & shows</td><td>Breaking societal conflict</td></tr>
+                    <tr><td>Long-Form Episodes</td><td>3 eps (100% copyright clean)</td><td>13 eps (7 monetized / 6 Content ID)</td><td>148 eps (Mon–Fri routine)</td></tr>
+                    <tr><td>Views Volume</td><td>10,316 total (1,062 – 7,623/ep)</td><td>209,181 total (16,091 avg/ep)</td><td>20,388,710 total (200K–450K+ hits)</td></tr>
+                    <tr><td>Peak Episode Reach</td><td>7,623 (EP.1 Mor Fai)</td><td>16,258 (<em>Khom Khlang</em> EP.3–4) & Reaction UNSEEN</td><td>628,411 views</td></tr>
+                    <tr><td>Click-Through Rate</td><td>3.12% avg (2.00% – 3.54%)</td><td>5.59% avg (Near 5.74% channel avg)</td><td>6.64% avg (6.0% – 8.35% hits)</td></tr>
+                    <tr><td>AVD & Watch Hours</td><td>04:06 avg (313.80 total hrs)</td><td>05:55 avg (9,665.66 total hrs)</td><td>08:14 avg (1,957,840.40 total hrs)</td></tr>
+                    <tr><td>Shorts Output</td><td>8+ Shorts (2K – 15K views)</td><td>10+ Shorts (3K – 22K views)</td><td>Selected highlight clips</td></tr>
+                    <tr class="row-highlight"><td>Commercial Impact</td><td>$2.81 ($0.76 RPM; EP.3 in 48-hr lag)</td><td>$46.21 ($0.52 RPM; 6/13 blocked)</td><td>$15,813.72 (94.50% | $1.18 RPM)</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge violet">SEERCRET PODCAST</span>
+                <span class="expand-title">Strengths, Episode Audit & 2027 Trials</span>
+              </div>
+              <span class="expand-hint">Expand Deep-Dive <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="sub-grid">
+                <div class="mini-panel">
+                  <h4>Strengths & Episode Footprint</h4>
+                  <ul class="detail-list violet">
+                    <li><strong>Production Polish:</strong> Multi-cam studio visuals, crisp audio, and credible guests (<em>Mor Fai The Magic Queen</em>, <em>Arjan Mongkol</em>).</li>
+                    <li><strong>Shorts Validation:</strong> Actionable palm-reading and ritual clips hit 10K–15K+ Shorts views.</li>
+                    <li><strong>Episode Breakdown:</strong> EP.1 Mor Fai (7,623 views | $2.25), EP.2 DJ Fortune Teller (1,631 | $0.56), EP.3 Arjan Mongkol (1,062 | pending 48-hr lag).</li>
+                  </ul>
+                </div>
+                <div class="mini-panel">
+                  <h4>Root Cause & 2027 Solution Trials</h4>
+                  <ul class="detail-list">
+                    <li><strong>Root Cause:</strong> Abstract Q&A fails to trigger urgency on Browse (&lt;4% CTR stalls algorithmic distribution).</li>
+                    <li><strong>Trial 1 — Scandal & Skepticism Pivot:</strong> Investigate spiritual frauds, fake shrines, and guru lawsuits to bridge spirituality with news drama.</li>
+                    <li><strong>Trial 2 — Curiosity Packaging & Shorts Funnels:</strong> Replace mic headshots with visual evidence/close-ups and link viral Shorts directly to podcast timestamps.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge">Nintha Series</span>
+                <span class="expand-title">Strengths, Content ID Leakage Audit & 2027 Trials</span>
+              </div>
+              <span class="expand-hint">Expand Deep-Dive <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="sub-grid">
+                <div class="mini-panel">
+                  <h4>Strengths & Monetization Bottleneck</h4>
+                  <ul class="detail-list">
+                    <li><strong>Proven Click Appeal:</strong> 5.59% CTR nearly matched channel benchmark, with 8–10 min retention on peak episodes (<em>Khom Khlang</em> EP.8–10) and strong <em>Reaction UNSEEN</em> traction.</li>
+                    <li><strong>Content ID Leakage:</strong> 6 of 13 episodes earned $0.00—including top-viewed <em>Khom Khlang EP.3–4</em> (16,258 views; 1,023 watch hrs).</li>
+                    <li><strong>Audience Ceiling & Latency:</strong> Sequential titles ("EP.9") deter casual viewers, and delayed drops miss broadcast peak heat.</li>
+                  </ul>
+                </div>
+                <div class="mini-panel">
+                  <h4>2027 Solution Trials</h4>
+                  <ul class="detail-list emerald">
+                    <li><strong>Copyright-Safe Visuals:</strong> Use still frames, fair-use transformational commentary, and Picture-in-Picture layouts to unlock 100% monetization.</li>
+                    <li><strong>Cultural Phenomenon Debriefs:</strong> Drop sequential episode numbers; cover viral endings, casting scandals, and universal curiosity hooks.</li>
+                    <li><strong>Placement Evaluation:</strong> If niche recaps remain at 3K–6K views, package as Shorts series or dedicated sub-playlists to protect main Browse velocity.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================== -->
+      <!-- SLIDE 10: 2027 STRATEGIC PRIORITIES & CONCLUSION (DOC SLIDE 7) -->
+      <!-- ===================================================================== -->
+      <section class="slide" data-index="9">
+        <div class="slide-header">
+          <div class="slide-kicker emerald">Slide 10 • 2027 Roadmap & Executive Conclusion</div>
+          <h1 class="slide-title">2027 Strategic Priorities: Scaling the Formula & Diversifying IP</h1>
+          <p class="slide-subtitle">Transitioning from 2026's turnaround year to a scaled, resilient media brand through editorial discipline, refactored spin-offs, and multi-tier revenue expansion.</p>
+        </div>
+
+        <div class="kpi-grid-5">
+          <div class="kpi-card accent-cyan">
+            <div class="kpi-label">2027 Views Target</div>
+            <div class="kpi-value tabular">32–35M</div>
+            <div class="kpi-delta">+40% to +50%</div>
+            <div class="kpi-note">From 23.10M in 2026</div>
+          </div>
+          <div class="kpi-card accent-violet">
+            <div class="kpi-label">2027 Watch Time</div>
+            <div class="kpi-value tabular">2.8–3.2M</div>
+            <div class="kpi-delta violet">Hours / Year</div>
+            <div class="kpi-note">Sustaining 8+ min AVD</div>
+          </div>
+          <div class="kpi-card accent-emerald">
+            <div class="kpi-label">2027 Target RPM</div>
+            <div class="kpi-value tabular">$1.35–1.50</div>
+            <div class="kpi-delta">Up from $1.07</div>
+            <div class="kpi-note">Mid-rolls + TV watch share</div>
+          </div>
+          <div class="kpi-card accent-red">
+            <div class="kpi-label">2027 YPP Revenue</div>
+            <div class="kpi-value tabular">$35K–45K</div>
+            <div class="kpi-delta">2x+ AdSense Growth</div>
+            <div class="kpi-note">Plus direct brand deals</div>
+          </div>
+          <div class="kpi-card accent-amber">
+            <div class="kpi-label">2027 Net Subs</div>
+            <div class="kpi-value tabular">+65,000</div>
+            <div class="kpi-delta info">Net New Subs</div>
+            <div class="kpi-note">From +43.8K in 2026</div>
+          </div>
+        </div>
+
+        <div class="kpi-grid-3">
+          <div class="card" style="border-top: 3px solid var(--accent-red);">
+            <div class="card-title">Pillar 1: Fortify the Core</div>
+            <ul class="detail-list red" style="margin-top:10px;">
+              <li><strong>Protect Mon–Fri Cadence:</strong> Never break the weekday evening debrief habit (6–10 PM peak).</li>
+              <li><strong>Strict &gt;6.0% CTR Filter:</strong> Keep thumbnails anchored on conflict, expressions, and direct quotes.</li>
+              <li><strong>Breaking Live Specials:</strong> Pilot live commentary during major national news peaks.</li>
+            </ul>
+          </div>
+          <div class="card" style="border-top: 3px solid var(--accent-violet);">
+            <div class="card-title">Pillar 2: Refactor Incubators</div>
+            <ul class="detail-list violet" style="margin-top:10px;">
+              <li><strong>SEERCRET Investigation Pivot:</strong> Cover spiritual frauds, controversial rituals, and guru disputes.</li>
+              <li><strong>Retire Episodic Recaps:</strong> Shift Nintha Series to standalone viral pop-culture debates (100% copyright-safe).</li>
+              <li><strong>Shorts Conversion Bridge:</strong> Use 30–45s tense trailers strictly to funnel viewers to full shows.</li>
+            </ul>
+          </div>
+          <div class="card" style="border-top: 3px solid var(--accent-emerald);">
+            <div class="card-title">Pillar 3: Commercial Expansion</div>
+            <ul class="detail-list emerald" style="margin-top:10px;">
+              <li><strong>Direct Brand Integrations:</strong> Package native sponsorships around our 25–44 core audience.</li>
+              <li><strong>Mid-Roll Optimization:</strong> Audit manual ad cues across 20–35 min episodes to lift RPM.</li>
+              <li><strong>Memberships & Shopping:</strong> Activate YouTube Shopping and fan perks for top 13% loyalists.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="expand-stack">
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge emerald">Multi-Year Targets</span>
+                <span class="expand-title">2025 → 2026 → 2027 KPI Trajectory & Strategic Rationale</span>
+              </div>
+              <span class="expand-hint">Expand Target Table <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="table-wrap">
+                <table class="tabular">
+                  <thead>
+                    <tr><th>Strategic Metric</th><th>2025 Baseline</th><th>2026 Actual (YTD)</th><th>2027 Target</th><th>Strategic Rationale</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>Total Channel Views</td><td>5.46M</td><td>23.10M</td><td><strong>32.0M – 35.0M</strong></td><td>+40% to +50% sustained expansion via disciplined packaging.</td></tr>
+                    <tr><td>Total Watch Time</td><td>88.8K hrs</td><td>2,067,331 hrs</td><td><strong>2.8M – 3.2M hrs</strong></td><td>Sustaining 8+ min average view duration across core shows.</td></tr>
+                    <tr><td>Channel RPM (USD)</td><td>$0.24</td><td>$1.07</td><td><strong>$1.35 – $1.50</strong></td><td>Manual mid-roll optimization + expanding Living Room TV watch share.</td></tr>
+                    <tr class="row-highlight"><td>Estimated AdSense / YPP</td><td>$921.27</td><td>$16,734.53</td><td><strong>$35,000 – $45,000</strong></td><td>Doubling programmatic income + capturing overseas diaspora CPMs.</td></tr>
+                    <tr><td>Net Subscriber Growth</td><td>+9.3K</td><td>+43.8K</td><td><strong>+65,000 net new</strong></td><td>Surpassing major channel milestones through weekday consistency.</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="expand-card">
+            <button class="expand-trigger">
+              <div class="expand-trigger-left">
+                <span class="expand-badge red">Executive Conclusion</span>
+                <span class="expand-title">The 2026 Sanook.com Story in 4 Sentences</span>
+              </div>
+              <span class="expand-hint">Expand Summary <span class="chevron">▾</span></span>
+            </button>
+            <div class="expand-body">
+              <div class="sub-grid">
+                <div class="mini-panel">
+                  <h4>1. The Strategic Pivot</h4>
+                  <p style="font-size:13.5px; color:var(--text-secondary); line-height:1.58;">Sanook.com transitioned from short, transactional clips to in-depth, long-form conversational debriefs, lifting overall AVD by <strong>+288% to 5:22</strong> (5:42 on Long-Form; 7:51 weighted watch-page sessions).</p>
+                </div>
+                <div class="mini-panel">
+                  <h4>2. The Resulting Scale</h4>
+                  <p style="font-size:13.5px; color:var(--text-secondary); line-height:1.58;">Channel watch time surged <strong>+2,227%</strong> to surpass <strong>2.06 million hours</strong>, while total views expanded 4.2x to <strong>23.1 million</strong>.</p>
+                </div>
+                <div class="mini-panel">
+                  <h4>3. The Revenue Multiplier</h4>
+                  <p style="font-size:13.5px; color:var(--text-secondary); line-height:1.58;">Higher retention and longer watch sessions lifted channel RPM from <strong>$0.24 to $1.07</strong>, multiplying annual estimated revenue from $921 in 2025 to <strong>$16,734.53 in 2026 (18.2x)</strong>.</p>
+                </div>
+                <div class="mini-panel">
+                  <h4>4. The Core Asset</h4>
+                  <p style="font-size:13.5px; color:var(--text-secondary); line-height:1.58;">Weekday flagship <strong>Nintha Khao</strong> (148 episodes) delivered <strong>94.70% of watch time</strong> (1.96M hrs) and <strong>94.50% of earnings</strong> ($15,813.72), anchoring Sanook as the daily evening companion for 43,788 new subscribers.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</div>
+
+<!-- Floating Bottom Navigation Pill -->
+<div class="bottom-nav">
+  <button class="btn" id="prevBtn" style="padding:6px 12px; border-radius:999px;">← Prev</button>
+  <div class="dot-nav" id="dotNav"></div>
+  <button class="btn btn-primary" id="nextBtn" style="padding:6px 14px; border-radius:999px;">Next →</button>
+</div>
+
+<!-- Speaker Notes Drawer -->
+<aside class="notes-drawer" id="notesDrawer">
+  <div class="notes-header">
+    <span id="notesTitle">🎙 Speaker Notes — Slide 01</span>
+    <button class="btn" id="closeNotesBtn" style="padding:4px 9px; font-size:11px;">✕ Close</button>
+  </div>
+  <div class="notes-body" id="notesBody"></div>
+</aside>
+
+<script>
+  const TOTAL_SLIDES = 10;
+  let currentSlide = 0;
+  const chartInstances = {};
+
+  // Speaker Notes Database (100% English, aligned to Reconciled 2026 SSOT)
+  const speakerNotes = [
+    `SLIDE 01 — FULL 2026 REVENUE REPORT\n\nSanook.com closed January 1 through November 24, 2026 with $16,734.53 in finalized YouTube revenue—an 18.2x (+1,716.5%) expansion over 2025.\n\nCrucially, this was not just a view-volume story (+323%). Watch Time surged +2,227% to 2.07M hours, multiplying mid-roll ad impressions and lifting Channel RPM 4.5x from $0.24 to $1.07.\n\nRevenue is balanced across two strong engines: Watch Page Ads (54.87%) and YouTube Premium (44.93%), with flagship Nintha Khao generating 94.50% ($15,813.72) of total income. Expand the 2027 levers panel to review five immediate actions—including manual mid-rolls, resolving Content ID on Nintha Series, enabling Shopping/Memberships, and pitching direct sponsorships.`,
+
+    `SLIDE 02 — EXECUTIVE SUMMARY & YOY TURNAROUND\n\nGood morning/afternoon everyone. If there is one primary takeaway from 2026, it is that our pivot toward high-retention, long-form news commentary fundamentally transformed Sanook.com's commercial foundation.\n\nIn 2025, our channel averaged just 1 minute 23 seconds per view, under 89,000 watch hours, and less than $1,000 in annual revenue. In 2026, views grew 323% to surpass 23.1 million, watch time jumped 23-fold to over 2 million hours, and overall AVD climbed to 5:22 (5:42 on long-form).\n\nThis wasn't accidental viral luck: thumbnail and packaging discipline raised CTR by +1.51 percentage points to 5.74% across 176M impressions, bringing in nearly 44,000 net new subscribers.`,
+
+    `SLIDE 03 — REVENUE TRAJECTORY & INFLECTION POINT\n\nThis chart captures the financial story of 2026: a sharp structural inflection followed by sustained compounding.\n\nFrom January to April, the channel hovered around $50–$80/month at $0.12–$0.49 RPM. In May, consistent long-form news commentary exploded monthly watch time 41x—from 2.2K hours in April to 93.4K hours—lifting monthly revenue +1,357% to nearly $1,000.\n\nMomentum never stalled: RPM rose every single quarter from $0.78 in May to $1.39 in October, where revenue peaked at $4,829.13—a 70x increase over April. Meanwhile, nearly 45% of total income came from YouTube Premium, proving high engagement among paying subscribers.`,
+
+    `SLIDE 04 — CONTENT FORMAT CONTRIBUTION\n\nThe format verdict is unequivocal: Long-form video drives virtually all business value on the channel.\n\nLong-form accounted for 93.76% of views, 99.51% of watch time (2.06M hours), 99.80% of revenue ($16,701.67), and 96.17% of net subscriber growth. Every 1,000 long-form views returned $1.14 compared to just $0.03 on Shorts.\n\nTherefore, Shorts ($32.86 total revenue) must never be judged as a monetization vehicle—their strict operational role is low-cost audience acquisition, cutting tense 30-second trailers to pull viewers into full episodes. Live streams (<1,000 views) remain an untapped growth opportunity for 2027.`,
+
+    `SLIDE 05 — CONTENT STRATEGY AUDIT\n\nHere we unpack why flagship episodes cleared half a million views while experimental shows lagged.\n\nNintha Khao thrived as the post-show evening companion to high-stakes live TV drama (Hone Krasae). Emotional betrayal, leaked evidence, and direct confrontation pushed CTR to 6.6%–7.3% and held viewers for 11–15 minutes.\n\nBy contrast, SEERCRET PODCAST (10,316 views, 3.12% CTR) suffered from audience intent mismatch on the Browse feed, while Nintha Series actually earned strong click appeal (209K views, 5.59% CTR) but lost monetization on 6 of 13 episodes due to Content ID claims on broadcast drama clips.`,
+
+    `SLIDE 06 — AUDIENCE DISCOVERY & TRAFFIC SOURCES\n\nSanook.com operates a highly healthy, feed-driven discovery engine: over 75% of views and 89.6% of watch hours come from Browse Features and Suggested Videos combined.\n\nBrowse Features delivered 10.7M views across 74.6M impressions at a remarkable 7.05% CTR, proving our thumbnails win the click on competitive Home screens. Meanwhile, Suggested Videos is our #1 watch-time engine—delivering 965K hours (46.7% share) at an 8:39 average view duration.\n\nSearch added 3.6M high-intent views on breaking names, while loyalists visiting via Channel Pages and Playlists averaged over 9.5 minutes per session.`,
+
+    `SLIDE 07 — AUDIENCE DEMOGRAPHICS & VIEWING HABITS\n\nFor brand sponsors and executives, this is our strongest commercial slide.\n\n62.8% of our audience sits squarely in the prime 25–44 working-adult demographic with purchasing power, balanced almost evenly at 52% female and 48% male.\n\nWhile mobile accounts for 69% of views, connected TVs (8:39 AVD) and Tablets (13:30 AVD) drive nearly a quarter (24.5%) of total watch time—showing viewers treat our evening episodes like prime-time television between 6:00 PM and 10:00 PM Bangkok time. Plus, 1.7M+ overseas views from the US, Australia, Japan, and Europe actively lift our international CPMs.`,
+
+    `SLIDE 08 — DEEP-DIVE: NINTHA KHAO\n\nNintha Khao is the undisputed engine of Sanook.com's turnaround: 148 Monday–Friday episodes generated 20.39M views, 94.70% of watch time (1.96M hours), and 94.50% of revenue ($15,813.72).\n\nOur Top 5 most-viewed episodes alone delivered 2.67M views and $1,812, with marathon sessions hitting 11 to 15+ minutes on stories like Auntie Maew's Son and Yat vs. Ta.\n\nOur greatest moat is operational routine: an unbroken Monday–Friday schedule paired with approachable conversational storytelling and high-contrast packaging that audiences rely on at the end of every workday.`,
+
+    `SLIDE 09 — NEW PROGRAM INCUBATOR: SEERCRET & NINTHA SERIES\n\nTesting new IP is critical for long-term resilience, and late 2026 gave us clear, actionable data.\n\nSEERCRET PODCAST proved strong studio quality and Shorts traction (10K–15K views on palm-reading clips) with 100% clean copyright, but long-form views stopped at 10,316 (3.12% CTR) due to intent mismatch.\n\nNintha Series proved real audience appetite—209K views and 5.59% CTR—but Content ID claims demonetized 6 of 13 episodes, capping revenue at $46.21.\n\nIn 2027, we don't abandon these verticals—we re-anchor them: pivot SEERCRET toward spiritual fraud investigations, and shift Nintha Series to copyright-safe, standalone cultural phenomenon debriefs.`,
+
+    `SLIDE 10 — 2027 STRATEGIC PRIORITIES & CONCLUSION\n\n2026 proved the concept; 2027 is about scaling and protecting the brand.\n\nFirst, fortify Nintha Khao's Monday–Friday routine and pilot live breaking-news specials. Second, refactor spin-offs around investigative controversy and copyright-safe cultural hooks while using Shorts strictly as conversion trailers. Third, expand commercial tiers through native brand integrations, manual mid-roll optimization, YouTube Shopping, and Channel Memberships.\n\nTogether, these three pillars position Sanook.com to reach 32–35M views, 2.8–3.2M watch hours, $1.35–$1.50 RPM, and $35,000–$45,000 in annualized platform revenue in 2027.`
+  ];
+
+  // Build Bottom Dot Nav
+  const dotNav = document.getElementById('dotNav');
+  for (let i = 0; i < TOTAL_SLIDES; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', `Go to slide ${i + 1}`);
+    dot.addEventListener('click', () => goToSlide(i));
+    dotNav.appendChild(dot);
+  }
+
+  // Slide Navigation Controller
+  function goToSlide(index) {
+    if (index < 0 || index >= TOTAL_SLIDES) return;
+    currentSlide = index;
+
+    document.querySelectorAll('.slide').forEach((s, i) => {
+      s.classList.toggle('active', i === currentSlide);
+    });
+    document.querySelectorAll('.nav-item').forEach((n, i) => {
+      n.classList.toggle('active', i === currentSlide);
+    });
+    document.querySelectorAll('.slide-dot').forEach((d, i) => {
+      d.classList.toggle('active', i === currentSlide);
+    });
+
+    const numStr = String(currentSlide + 1).padStart(2, '0');
+    document.getElementById('slideCounter').textContent = `${numStr} / ${TOTAL_SLIDES}`;
+    document.getElementById('progressBar').style.width = `${((currentSlide + 1) / TOTAL_SLIDES) * 100}%`;
+
+    // Update Speaker Notes
+    document.getElementById('notesTitle').textContent = `🎙 Speaker Notes — Slide ${numStr}`;
+    document.getElementById('notesBody').textContent = speakerNotes[currentSlide];
+
+    // Update Expand All Button Label
+    updateExpandAllButtonState();
+
+    // Scroll to top smoothly
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    // Close mobile sidebar after click
+    document.getElementById('sidebar').classList.remove('mobile-open');
+
+    // Render / Resize Chart for Active Slide
+    requestAnimationFrame(() => initSlideCharts(currentSlide));
+  }
+
+  // Sidebar Click Handlers
+  document.querySelectorAll('.nav-item').forEach(btn => {
+    btn.addEventListener('click', () => goToSlide(Number(btn.dataset.slide)));
+  });
+
+  document.getElementById('prevBtn').addEventListener('click', () => goToSlide(currentSlide - 1));
+  document.getElementById('nextBtn').addEventListener('click', () => goToSlide(currentSlide + 1));
+
+  // Keyboard Navigation
+  document.addEventListener('keydown', (e) => {
+    if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+    if (e.key === 'ArrowRight' || e.key === 'PageDown') goToSlide(currentSlide + 1);
+    if (e.key === 'ArrowLeft' || e.key === 'PageUp') goToSlide(currentSlide - 1);
+  });
+
+  // Expand / Collapse Individual Deep-Dive Cards
+  document.querySelectorAll('.expand-trigger').forEach(trigger => {
+    trigger.addEventListener('click', () => {
+      const card = trigger.closest('.expand-card');
+      card.classList.toggle('open');
+      updateExpandAllButtonState();
+    });
+  });
+
+  // Expand All / Collapse All on Active Slide
+  function updateExpandAllButtonState() {
+    const activeSlideEl = document.querySelector('.slide.active');
+    const cards = activeSlideEl.querySelectorAll('.expand-card');
+    const allOpen = cards.length > 0 && Array.from(cards).every(c => c.classList.contains('open'));
+    document.getElementById('expandAllBtn').textContent = allOpen ? '⊟ Collapse All Details' : '⊞ Expand All Details';
+  }
+
+  document.getElementById('expandAllBtn').addEventListener('click', () => {
+    const activeSlideEl = document.querySelector('.slide.active');
+    const cards = activeSlideEl.querySelectorAll('.expand-card');
+    const allOpen = Array.from(cards).every(c => c.classList.contains('open'));
+    cards.forEach(c => c.classList.toggle('open', !allOpen));
+    updateExpandAllButtonState();
+  });
+
+  // Sidebar Toggle
+  document.getElementById('toggleSidebarBtn').addEventListener('click', () => {
+    const sb = document.getElementById('sidebar');
+    const stage = document.getElementById('mainStage');
+    if (window.innerWidth <= 860) {
+      sb.classList.toggle('mobile-open');
+    } else {
+      sb.classList.toggle('collapsed');
+      stage.classList.toggle('expanded');
+    }
+  });
+
+  // Speaker Notes Toggle
+  const notesDrawer = document.getElementById('notesDrawer');
+  document.getElementById('toggleNotesBtn').addEventListener('click', () => {
+    notesDrawer.classList.toggle('open');
+  });
+  document.getElementById('closeNotesBtn').addEventListener('click', () => {
+    notesDrawer.classList.remove('open');
+  });
+
+  // Fullscreen Toggle
+  document.getElementById('fullscreenBtn').addEventListener('click', () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen?.();
+    } else {
+      document.exitFullscreen?.();
+    }
+  });
+
+  // Global Chart.js Dark Defaults
+  Chart.defaults.color = '#94A3B8';
+  Chart.defaults.borderColor = 'rgba(148, 163, 184, 0.12)';
+  Chart.defaults.font.family = "'Inter', sans-serif";
+
+  function initSlideCharts(slideIdx) {
+    // Slide 2: YoY Multiples Horizontal Bar
+    if (slideIdx === 1 && !chartInstances.s2) {
+      const ctx = document.getElementById('chartSlide2');
+      chartInstances.s2 = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Watch Time (hrs)', 'Est. Revenue ($)', 'Net Subscribers', 'Channel RPM ($)', 'Total Views'],
+          datasets: [{
+            label: '2026 Multiple vs. 2025',
+            data: [23.3, 18.2, 4.7, 4.5, 4.2],
+            backgroundColor: ['#A855F7', '#F43F5E', '#10B981', '#38BDF8', '#6366F1'],
+            borderRadius: 8,
+            barThickness: 22
+          }]
+        },
+        options: {
+          indexAxis: 'y',
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              callbacks: { label: ctx => ` ${ctx.parsed.x}x vs. 2025` }
+            }
+          },
+          scales: {
+            x: { ticks: { callback: v => v + 'x' }, grid: { color: 'rgba(148,163,184,0.08)' } },
+            y: { grid: { display: false } }
+          }
+        }
+      });
+    }
+
+    // Slide 3: Monthly Revenue & RPM Combo Chart
+    if (slideIdx === 2 && !chartInstances.s3) {
+      const ctx = document.getElementById('chartSlide3');
+      chartInstances.s3 = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov*'],
+          datasets: [
+            {
+              type: 'bar',
+              label: 'Est. Revenue (USD)',
+              data: [17.90, 80.01, 61.37, 68.39, 996.58, 1479.35, 1143.71, 2520.32, 3261.18, 4829.13, 2276.58],
+              backgroundColor: [
+                'rgba(148,163,184,0.35)', 'rgba(148,163,184,0.35)', 'rgba(148,163,184,0.35)', 'rgba(148,163,184,0.35)',
+                'rgba(245,158,11,0.75)', 'rgba(245,158,11,0.85)', 'rgba(245,158,11,0.75)',
+                'rgba(244,63,94,0.8)', 'rgba(244,63,94,0.88)', '#F43F5E', 'rgba(56,189,248,0.45)'
+              ],
+              borderRadius: 7,
+              yAxisID: 'y'
+            },
+            {
+              type: 'line',
+              label: 'Channel RPM ($)',
+              data: [0.12, 0.34, 0.36, 0.49, 0.78, 0.87, 0.89, 0.99, 1.12, 1.39, 1.33],
+              borderColor: '#38BDF8',
+              backgroundColor: '#38BDF8',
+              borderWidth: 2.5,
+              pointRadius: 4,
+              tension: 0.32,
+              yAxisID: 'y1'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          interaction: { mode: 'index', intersect: false },
+          plugins: {
+            legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 8 } }
+          },
+          scales: {
+            y: {
+              position: 'left',
+              ticks: { callback: v => '$' + v.toLocaleString() },
+              grid: { color: 'rgba(148,163,184,0.08)' }
+            },
+            y1: {
+              position: 'right',
+              min: 0,
+              max: 1.6,
+              ticks: { callback: v => '$' + v.toFixed(2) },
+              grid: { drawOnChartArea: false }
+            },
+            x: { grid: { display: false } }
+          }
+        }
+      });
+    }
+
+    // Slide 4: Format Share Comparison Bar
+    if (slideIdx === 3 && !chartInstances.s4) {
+      const ctx = document.getElementById('chartSlide4');
+      chartInstances.s4 = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Share of Views', 'Share of Watch Time', 'Share of Revenue', 'Share of Net Subs'],
+          datasets: [
+            { label: 'Long-Form', data: [93.76, 99.51, 99.80, 96.17], backgroundColor: '#F43F5E', borderRadius: 6 },
+            { label: 'Shorts', data: [6.24, 0.48, 0.20, 3.83], backgroundColor: '#38BDF8', borderRadius: 6 }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 8 } },
+            tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}%` } }
+          },
+          scales: {
+            x: { stacked: true, grid: { display: false } },
+            y: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: 'rgba(148,163,184,0.08)' } }
+          }
+        }
+      });
+    }
+
+    // Slide 6: Traffic Sources Views vs Watch Time Share
+    if (slideIdx === 5 && !chartInstances.s6) {
+      const ctx = document.getElementById('chartSlide6');
+      chartInstances.s6 = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: ['Browse Features', 'Suggested Videos', 'YouTube Search', 'Shorts Feed', 'Channel & Playlists', 'Other / External'],
+          datasets: [
+            { label: 'Share of Views (%)', data: [46.30, 29.47, 15.60, 2.43, 1.80, 4.40], backgroundColor: '#38BDF8', borderRadius: 6 },
+            { label: 'Share of Watch Time (%)', data: [42.89, 46.70, 3.76, 0.13, 2.90, 3.62], backgroundColor: '#F43F5E', borderRadius: 6 }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 8 } },
+            tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}%` } }
+          },
+          scales: {
+            y: { ticks: { callback: v => v + '%' }, grid: { color: 'rgba(148,163,184,0.08)' } },
+            x: { grid: { display: false } }
+          }
+        }
+      });
+    }
+
+    // Slide 7: Age & Gender + Device Charts
+    if (slideIdx === 6 && !chartInstances.s7Age) {
+      const ctxAge = document.getElementById('chartSlide7Age');
+      chartInstances.s7Age = new Chart(ctxAge, {
+        type: 'bar',
+        data: {
+          labels: ['13–17', '18–24', '25–34', '35–44', '45–54', '55–64', '65+'],
+          datasets: [
+            { label: 'Female %', data: [0.29, 3.65, 18.72, 13.02, 8.36, 4.98, 3.15], backgroundColor: '#F43F5E', borderRadius: 4 },
+            { label: 'Male %', data: [0.20, 2.86, 17.82, 13.27, 7.71, 3.56, 2.25], backgroundColor: '#38BDF8', borderRadius: 4 }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 8 } },
+            tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}%` } }
+          },
+          scales: {
+            x: { stacked: true, grid: { display: false } },
+            y: { stacked: true, ticks: { callback: v => v + '%' }, grid: { color: 'rgba(148,163,184,0.08)' } }
+          }
+        }
+      });
+
+      const ctxDev = document.getElementById('chartSlide7Device');
+      chartInstances.s7Device = new Chart(ctxDev, {
+        type: 'bar',
+        data: {
+          labels: ['Mobile', 'Desktop', 'Smart TV', 'Tablet'],
+          datasets: [
+            { label: 'Views Share (%)', data: [68.98, 12.55, 10.31, 8.03], backgroundColor: '#6366F1', borderRadius: 6 },
+            { label: 'Watch Time Share (%)', data: [65.13, 10.14, 11.06, 13.47], backgroundColor: '#10B981', borderRadius: 6 }
+          ]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          plugins: {
+            legend: { position: 'top', labels: { usePointStyle: true, boxWidth: 8 } },
+            tooltip: { callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.parsed.y}%` } }
+          },
+          scales: {
+            y: { ticks: { callback: v => v + '%' }, grid: { color: 'rgba(148,163,184,0.08)' } },
+            x: { grid: { display: false } }
+          }
+        }
+      });
+    }
+  }
+
+  // Initialize Slide 1 Notes
+  document.getElementById('notesBody').textContent = speakerNotes[0];
+</script>
+</body>
+</html>
